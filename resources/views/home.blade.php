@@ -16,12 +16,12 @@
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="d-flex align-items-center" href="#">
+            <a class="d-flex align-items-center" href="{{ route('home') }}">
                 <img src="{{ asset('images/paw.png') }}" alt="Logo" width="30">
                 <span class="ms-2">Arf & Meow Co.</span>
             </a>
             <div class="d-flex">
-                <a href="/" class="ballo">Sign In</a>
+                <a href="{{ route('signup') }}">Sign In</a>
             </div>
         </div>
     </nav>
