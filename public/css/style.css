@@ -1,0 +1,323 @@
+@font-face {
+    /* sans-serif */
+    font-family: "Baloo";
+    src: url("/fonts/Baloo2-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    /* sans-serif */
+    font-family: "Nunito";
+    src: url("/fonts/Nunito-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    /* sans-serif */
+    font-family: "Quicksand";
+    src: url("/fonts/Quicksand-Regular.ttf") format("truetype");
+}
+
+:root {
+    --color-primary: #3b82f6; /* Warm Blue */
+    --color-secondary: #f87171; /* Soft Coral */
+    --color-background: #fffdf7; /* Cream White */
+    --color-text-primary: #374151; /* Dark Slate Gray */
+    --color-text-secondary: #6b7280; /* Cool Gray */
+    --color-accent: #34d399; /* Fresh Mint Green */
+    --color-border: #e5e7eb; /* Light Taupe */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: var(--color-primary);
+    font-family: "Baloo", sans-serif;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+header h1 {
+    font-family: "Baloo", sans-serif;
+    color: var(--color-secondary);
+    font-size: 1.175rem;
+    font-weight: bold;
+}
+
+header p {
+    font-family: "Quicksand", sans-serif;
+    color: var(--color-text-primary);
+    font-size: 0.575rem;
+}
+
+header a {
+    display: inline-block;
+    padding: 8px 24px;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.675rem;
+    font-weight: bold;
+    border-radius: 18px;
+}
+
+.right-col {
+    background-color: #add8e6;
+}
+
+.right-col img {
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 180px;
+    width: auto;
+}
+
+.row-under {
+    background-color: #f4a7b9;
+}
+
+.row-under p {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-secondary);
+    font-size: 0.575rem;
+    padding: 10px 20px;
+}
+
+.know-us {
+    background-image: url("/images/know_us.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.know-us h2 {
+    font-family: "Baloo", sans-serif;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.know-us span {
+    color: var(--color-background);
+}
+
+.know-us p {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-primary);
+    font-size: 0.675rem;
+}
+
+.product h2 {
+    text-align: center;
+    color: var(--color-text-primary);
+    font-family: "Baloo", sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.product h2 span {
+    color: var(--color-primary);
+}
+
+.product img {
+    width: 75%;
+    height: auto;
+}
+
+.product h3 {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+}
+
+.product p {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-primary);
+    font-size: 0.675rem;
+    padding-top: 6px;
+}
+
+.featured {
+    background-color: var(--color-primary);
+}
+
+.featured h2 {
+    color: white;
+    font-family: "Baloo", sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.featured h2 span {
+    color: var(--color-secondary);
+}
+
+.featured .card {
+    background-color: white;
+    border-radius: 32px;
+    padding: 0 18px;
+}
+
+.featured .card img {
+    width: 85%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.featured h3,
+.featured .price {
+    font-family: "Balooo", sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: var(--color-text-primary);
+}
+
+.featured .desc,
+.featured .stock {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.675rem;
+}
+
+.featured .desc {
+    color: var(--color-text-secondary);
+}
+
+.featured .price {
+    font-size: 0.75rem;
+}
+
+.featured .stock {
+    color: var(--color-accent);
+}
+
+.featured a {
+    display: inline;
+    padding: 8px 24px;
+    width: fit-content;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+.form h2 {
+    font-family: "Baloo", sans-serif;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.form label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.675rem;
+}
+
+.form input[type="text"],
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+}
+
+.form button {
+    background-color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 18px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+footer h2 {
+    font-family: "Baloo", sans-serif;
+    color: var(--color-text-primary);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+footer .credits {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-secondary);
+    font-size: 0.525rem;
+}
+
+footer .connect {
+    font-size: 0.7rem;
+}
+
+footer a img {
+    width: 12px;
+    margin: 0;
+}
+
+.signup col {
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup img {
+    width: 30%;
+    height: auto;
+}
+
+.comp-name {
+    font-family: "Baloo", sans-serif;
+    color: var(--color-primary);
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.signup h1 {
+    font-family: "Baloo", sans-serif;
+    color: var(--color-text-primary);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.sub {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-primary);
+    font-size: 0.8rem;
+}
+
+.signup button {
+    background-color: var(--color-accent);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    padding: 8px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}

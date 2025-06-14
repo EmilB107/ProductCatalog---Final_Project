@@ -15,8 +15,16 @@ use App\Http\Controllers\ProductController; // Import your controller
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+
+Route::get('/signup', function () {
+    return view('signup');
+})->name('signup');
+
+Route::post('/signup', function () {
+    // Handle signup form submission here
+})->name('signup.submit');
 
 // Route to display all products
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
