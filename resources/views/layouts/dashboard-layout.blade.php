@@ -1,35 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Arf & Meow Co.')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="{{ asset('js/sidenav.js') }}" ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous">
+    </script>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Arf & Meow Co.</a>
-            <!-- Other navbar content -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            @include('partials._brand')
+            <div class="d-flex align-items-center">
+                <a class="d-block me-4" href="#">Sign Out</a>
+                <div class="me-2">
+                    <img src="{{ asset('images/pic.png') }}" alt="User Image" width="30">
+                    <p class="username text-center fw-bold">PM</p>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div class="container-fluid d-flex">
-        <!-- Sidebar -->
-        <aside class="sidebar bg-light">
-            <ul>
-                <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li><a href="{{ route('products.index') }}">Products</a></li>
-                <li><a href="#">Orders</a></li>
+    <div class="d-flex">
+        <aside class="sidebar">
+            <ul class="list-unstyled d-flex flex-column">
+                <li class="ms-1 mt-3 mb-4">
+                    <button id="menu-toggle">
+                        <img src="{{ asset('images/sidenav-01.png') }}" alt="Menu Icon">
+                    </button>
+                </li>
+                <li class="ms-1 mb-3">
+                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                        <img src="{{ asset('images/sidenav-02.png') }}" alt="Home Icon">
+                        <span class="menu-text ms-2">Home</span>
+                    </a>
+                </li>
+                <li class="ms-1 mb-3">
+                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                        <img src="{{ asset('images/sidenav-03.png') }}" alt="Products Icon">
+                        <span class="menu-text ms-2">Products</span>
+                    </a>
+                </li>
+                <li class="ms-1 mb-3">
+                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                        <img src="{{ asset('images/sidenav-04.png') }}" alt="Categories Icon">
+                        <span class="menu-text ms-2">Categories</span>
+                    </a>
+                </li>
+                <li class="ms-1 mb-3">
+                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                        <img src="{{ asset('images/sidenav-05.png') }}" alt="Inventory Icon">
+                        <span class="menu-text ms-2">Inventory</span>
+                    </a>
+                </li>
+                <li class="ms-1 mb-3">
+                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                        <img src="{{ asset('images/sidenav-06.png') }}" alt="Prices Icon">
+                        <span class="menu-text ms-2">Prices</span>
+                    </a>
+                </li>
             </ul>
         </aside>
 
-        <!-- Main Content -->
-        <main class="flex-grow-1 p-4">
+        <main class="main-content flex-grow-1 dashboard-content p-4">
             @yield('content') <!-- Page-specific content will be injected here -->
         </main>
     </div>
 </body>
+
 </html>
