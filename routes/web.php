@@ -25,6 +25,8 @@ Route::get('/signup', function () {
 
 Route::post('/signup', function () {
     // Handle signup form submission here
+    return redirect()->route('dashboard'); // redirect to dashboard agad
+    // You can replace this with actual signup logic later
 })->name('signup.submit');
 
 Route::get('/dashboard', function () {

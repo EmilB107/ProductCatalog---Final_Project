@@ -10,17 +10,17 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $request->validate([
-            'username' => 'required|min:3|unique:users',
-            'password' => 'required|min:6',
-        ]);
+        // $request->validate([
+        //     'username' => 'required|min:3|unique:users',
+        //     'password' => 'required|min:6',
+        // ]);
 
-        User::create([
-            'username' => $request->username,
-            'password' => Hash::make($request->password), // Secure password hashing
-        ]);
+        // User::create([
+        //     'username' => $request->username,
+        //     'password' => Hash::make($request->password), // Secure password hashing
+        // ]);
 
-        // return redirect()->route('home')->with('success', 'Sign-up successful!');
+        // Temporarily redirect to the dashboard without processing form data
         return redirect()->route('dashboard')->with('success', 'Welcome to your dashboard!');
     }
 }
