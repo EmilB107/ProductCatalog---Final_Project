@@ -11,16 +11,12 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous">
     </script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="d-flex align-items-center" href="{{ route('home') }}">
-                <img src="{{ asset('images/paw.png') }}" alt="Logo" width="30">
-                <span class="ms-2">Arf & Meow Co.</span>
-            </a>
+            @include('partials._brand')
             <div class="d-flex">
                 <a href="{{ route('auth.signup') }}">Sign In</a>
             </div>
