@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController; // Import your controller
 
 /*
@@ -19,12 +20,19 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/signup', function () {
-    return view('signup');
-})->name('signup');
+    return view('auth.signup');
+})->name('auth.signup');
 
 Route::post('/signup', function () {
     // Handle signup form submission here
 })->name('signup.submit');
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+
+
+Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
 
 // Route to display all products
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
