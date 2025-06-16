@@ -294,7 +294,7 @@ footer a img {
 .comp-name {
     font-family: "Baloo", sans-serif;
     color: var(--color-primary);
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: bold;
 }
 
@@ -328,13 +328,13 @@ footer a img {
 .username {
     font-family: "Baloo", sans-serif;
     color: white;
-    font-size: .8rem;
+    font-size: 0.8rem;
     margin: 0;
 }
 
 .sidebar {
     flex-shrink: 0;
-    background-color: #D3D3D3;
+    background-color: #d3d3d3;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 100vh;
     width: 38px;
@@ -364,7 +364,7 @@ footer a img {
 .sidebar a {
     color: var(--color-secondary);
     text-decoration: none;
-    margin-right: .8rem;
+    margin-right: 0.8rem;
     font-weight: bold;
 }
 
@@ -375,7 +375,8 @@ footer a img {
     white-space: nowrap; /* Prevent text from breaking */
 }
 
-.d-home h1, .d-overview h2 {
+.main-content h1,
+.main-content h2 {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
     font-size: 1rem;
@@ -402,7 +403,7 @@ footer a img {
 .d-home .num {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: bold;
 }
 
@@ -413,28 +414,97 @@ footer a img {
     font-size: 0.675rem;
 }
 
-.d-overview .table-responsive {
+.d-overview .table-responsive,
+.d-product .table-responsive {
     max-width: 100%;
     overflow-x: auto;
 }
 
-.d-overview .table {
+.d-overview .table,
+.d-product .table {
     width: 100%;
     table-layout: auto;
     font-size: 0.575rem;
 }
 
-.d-overview .table-bordered {
+.d-overview .table-bordered,
+.d-product .table-bordered {
     border: 2px solid #222;
 }
-.d-overview .table-bordered th, .d-overview .table-bordered td {
+.d-overview .table-bordered th,
+.d-overview .table-bordered td,
+.d-product .table-bordered th,
+.d-product .table-bordered td {
     padding: 1.2em 0.2em;
     word-break: break-word;
 }
 
-.d-overview .table-bordered th {
+.d-overview .table-bordered th,
+.d-product .table-bordered th {
     background-color: var(--color-primary);
     color: white;
     font-family: "Baloo", sans-serif;
     font-weight: bold;
+}
+
+.d-product .icon {
+    display: block;
+    width: 12px;
+    margin: 8px;
+}
+
+.product-search-bar {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    align-items: start;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    pointer-events: none;
+}
+
+.search-input {
+    border: 2px solid black;
+    border-radius: 2rem;
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-primary);
+    font-size: .475rem;
+    padding: 0.4rem 0.8rem 0.4rem 2rem;
+    width: 100%;
+}
+
+.search-input::placeholder {
+    color: #d3d3d3;
+    font-size: .5rem;
+}
+
+.search-btn {
+    align-self: center;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    font-size: .5rem;
+    padding: 0.4em 1.2em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-btn:hover {
+    background: #24c18a;
 }
