@@ -416,14 +416,18 @@ footer a img {
 
 .d-overview .table-responsive,
 .d-product .table-responsive,
-.d-category .table-responsive {
+.d-category .table-responsive,
+.d-inventory .table-responsive,
+.d-prices .table-responsive {
     max-width: 100%;
     overflow-x: auto;
 }
 
 .d-overview .table,
 .d-product .table,
-.d-category .table {
+.d-category .table,
+.d-inventory .table,
+.d-prices .table {
     width: 100%;
     table-layout: auto;
     font-size: 0.575rem;
@@ -431,7 +435,9 @@ footer a img {
 
 .d-overview .table-bordered,
 .d-product .table-bordered,
-.d-category .table-bordered {
+.d-category .table-bordered,
+.d-inventory .table-bordered,
+.d-prices .table-bordered  {
     border: 2px solid #222;
 }
 .d-overview .table-bordered th,
@@ -439,14 +445,20 @@ footer a img {
 .d-product .table-bordered th,
 .d-product .table-bordered td,
 .d-category .table-bordered th,
-.d-category .table-bordered td {
+.d-category .table-bordered td,
+.d-inventory .table-bordered th,
+.d-inventory .table-bordered td,
+.d-prices .table-bordered th,
+.d-prices .table-bordered td {
     padding: 1.2em 0.2em;
     word-break: break-word;
 }
 
 .d-overview .table-bordered th,
 .d-product .table-bordered th,
-.d-category .table-bordered th {
+.d-category .table-bordered th,
+.d-inventory .table-bordered th,
+.d-prices .table-bordered th  {
     background-color: var(--color-primary);
     color: white;
     font-family: "Baloo", sans-serif;
