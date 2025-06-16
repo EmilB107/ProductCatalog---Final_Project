@@ -56,13 +56,13 @@
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
-                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                    <a class="d-flex align-items-center" href="{{ route('inventory.index') }}">
                         <img src="{{ asset('images/sidenav-05.png') }}" alt="Inventory Icon">
                         <span class="menu-text ms-2">Inventory</span>
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
-                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                    <a class="d-flex align-items-center" href="{{ route('prices') }}">
                         <img src="{{ asset('images/sidenav-06.png') }}" alt="Prices Icon">
                         <span class="menu-text ms-2">Prices</span>
                     </a>
