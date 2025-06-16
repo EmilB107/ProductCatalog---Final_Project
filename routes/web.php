@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductController; // Import your controller
 
 /*
@@ -34,8 +35,13 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
 
+Route::get('/prices', function () {
+    return view('prices.index');
+})->name('prices');
+
 
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
-Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index'); // baguin nlng if wala nmn CRUD functionalities dito
+Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
 // Route to display all products
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
