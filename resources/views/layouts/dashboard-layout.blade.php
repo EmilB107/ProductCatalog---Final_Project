@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
-                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                    <a class="d-flex align-items-center" href="{{ route('categories.index') }}">
                         <img src="{{ asset('images/sidenav-04.png') }}" alt="Categories Icon">
                         <span class="menu-text ms-2">Categories</span>
                     </a>

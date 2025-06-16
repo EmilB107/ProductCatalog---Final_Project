@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductController; // Import your controller
 
 /*
@@ -35,6 +36,6 @@ Route::get('/dashboard', function () {
 
 
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
-
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
 // Route to display all products
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');

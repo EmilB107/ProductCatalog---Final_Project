@@ -415,32 +415,38 @@ footer a img {
 }
 
 .d-overview .table-responsive,
-.d-product .table-responsive {
+.d-product .table-responsive,
+.d-category .table-responsive {
     max-width: 100%;
     overflow-x: auto;
 }
 
 .d-overview .table,
-.d-product .table {
+.d-product .table,
+.d-category .table {
     width: 100%;
     table-layout: auto;
     font-size: 0.575rem;
 }
 
 .d-overview .table-bordered,
-.d-product .table-bordered {
+.d-product .table-bordered,
+.d-category .table-bordered {
     border: 2px solid #222;
 }
 .d-overview .table-bordered th,
 .d-overview .table-bordered td,
 .d-product .table-bordered th,
-.d-product .table-bordered td {
+.d-product .table-bordered td,
+.d-category .table-bordered th,
+.d-category .table-bordered td {
     padding: 1.2em 0.2em;
     word-break: break-word;
 }
 
 .d-overview .table-bordered th,
-.d-product .table-bordered th {
+.d-product .table-bordered th,
+.d-category .table-bordered th {
     background-color: var(--color-primary);
     color: white;
     font-family: "Baloo", sans-serif;

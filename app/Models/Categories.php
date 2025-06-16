@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\SubCategory; // Import SubCategory model
 use App\Models\Product;     // Import Product model
 
-class Category extends Model
+class Categories extends Model
 {
     use HasFactory;
 
