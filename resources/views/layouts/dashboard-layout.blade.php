@@ -19,7 +19,8 @@
         <div class="container">
             @include('partials._brand')
             <div class="d-flex align-items-center">
-                <a class="d-block me-4" href="#">Sign Out</a>
+                {{-- palitan nlng para sa authentication --}}
+                <a class="d-block me-4" href="{{ route('home') }}">Sign Out</a>
                 <div class="me-2">
                     <img src="{{ asset('images/pic.png') }}" alt="User Image" width="30">
                     <p class="username text-center fw-bold">PM</p>
@@ -43,7 +44,7 @@
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
-                    <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
+                    <a class="d-flex align-items-center" href="{{ route('products.index') }}">
                         <img src="{{ asset('images/sidenav-03.png') }}" alt="Products Icon">
                         <span class="menu-text ms-2">Products</span>
                     </a>
@@ -69,7 +70,7 @@
             </ul>
         </aside>
 
-        <main class="main-content flex-grow-1 dashboard-content p-4">
+        <main class="main-content flex-grow-1 p-4">
             @yield('content') <!-- Page-specific content will be injected here -->
         </main>
     </div>
