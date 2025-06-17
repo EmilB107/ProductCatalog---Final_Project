@@ -22,4 +22,25 @@ class ProductController extends Controller
     }
 
     // You can add other methods like show, create, store, edit, update, destroy later
+
+    public function create()
+{
+    return view('products.create');
+}
+
+    public function show(Product $product)
+    {
+        return view('products.show', compact('product'));
+    }
+
+    public function edit(Product $product)
+    {
+        return view('products.edit', compact('product'));
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    }
 }
