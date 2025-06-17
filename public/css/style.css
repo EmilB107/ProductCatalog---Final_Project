@@ -437,7 +437,7 @@ footer a img {
 .d-product .table-bordered,
 .d-category .table-bordered,
 .d-inventory .table-bordered,
-.d-prices .table-bordered  {
+.d-prices .table-bordered {
     border: 2px solid #222;
 }
 .d-overview .table-bordered th,
@@ -458,17 +458,37 @@ footer a img {
 .d-product .table-bordered th,
 .d-category .table-bordered th,
 .d-inventory .table-bordered th,
-.d-prices .table-bordered th  {
+.d-prices .table-bordered th {
     background-color: var(--color-primary);
     color: white;
     font-family: "Baloo", sans-serif;
     font-weight: bold;
 }
 
-.d-product .icon {
-    display: block;
+.icon-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-col .icon {
     width: 12px;
-    margin: 8px;
+    height: auto;
+}
+
+.add-btn {
+    background-color: var(--color-accent);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.675rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 1.2rem;
+    cursor: pointer;
 }
 
 .product-search-bar {
@@ -496,18 +516,18 @@ footer a img {
 }
 
 .search-input {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 2rem;
     font-family: "Nunito", sans-serif;
     color: var(--color-text-primary);
-    font-size: .475rem;
+    font-size: 0.475rem;
     padding: 0.4rem 0.8rem 0.4rem 2rem;
     width: 100%;
 }
 
 .search-input::placeholder {
     color: #d3d3d3;
-    font-size: .5rem;
+    font-size: 0.5rem;
 }
 
 .search-btn {
@@ -517,12 +537,91 @@ footer a img {
     border: none;
     border-radius: 0.3rem;
     font-weight: bold;
-    font-size: .5rem;
-    padding: 0.4em 1.2em;
+    font-size: 0.5rem;
+    padding: 0.4rem 1.2rem;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
 .search-btn:hover {
     background: #24c18a;
+}
+
+.return img {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.return a {
+    display: flex;
+    align-items: center;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.8rem;
+}
+
+.crud-card b {
+    font-family: "Baloo", sans-serif;
+    color: var(--color-text-primary);
+    font-size: 0.8rem;
+}
+
+.crud-card span {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-secondaryary);
+    font-size: 0.675rem;
+}
+
+.crud-card img {
+    width: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #eaf6fb;
+}
+
+.crud-card p {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-secondary);
+    font-size: 0.675rem;
+}
+
+.crud-card a {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.675rem;
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-accent);
+    border-radius: 8px;
+    padding: 0.4rem 1.2rem;
+}
+
+.crud-card input,
+.crud-card select {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.crud-card label img {
+    width: 16px;
+    height: fit-content;
+}
+
+.crud-card label span {
+    font-family: "Nunito", sans-serif;
+    color: var(--color-text-secondary);
+}
+
+.crud-card button {
+    background-color: #e9ecef;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.675rem;
+    cursor: pointer;
+}
+
+.upload img {
+    width: 18px;
 }
