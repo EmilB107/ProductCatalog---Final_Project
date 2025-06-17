@@ -43,5 +43,19 @@ Route::get('/prices', function () {
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index'); // baguin nlng if wala nmn CRUD functionalities dito
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-// Route to display all products
+
+// Products Routes
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+// Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+// Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+// Temporary routes for products until CRUD is implemented
+Route::get('/products/{id}', function ($id) {
+    return view('products.show', ['id' => $id]);
+})->name('products.show');
+
+Route::get('/products/{id}/edit', function ($id) {
+    return view('products.edit', ['id' => $id]);
+})->name('products.edit');
