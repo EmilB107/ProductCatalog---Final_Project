@@ -6,7 +6,17 @@
 @section('content')
     <section class="d-category">
         <div class="d-flex mb-3">
-            <h1>Categories</h1>
+            <h1>Products</h1>
+            <div class="product-search-bar ms-auto">
+                <form action="#" method="GET" class="search-form">
+                    <div class="search-input-wrapper">
+                        <img src="{{ asset('images/search.png') }}" alt="Search" class="search-icon">
+                        <input type="text" name="query" class="search-input"
+                            placeholder="Search Products. SKU, Category, Price, Stock">
+                    </div>
+                    <button type="submit" class="search-btn ms-3 ">SEARCH</button>
+                </form>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table table-bordered text-center align-middle">
