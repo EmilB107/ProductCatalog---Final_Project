@@ -6,7 +6,7 @@
 @section('content')
     <section class="d-category">
         <div class="d-flex mb-3">
-            <h1>Products</h1>
+            <h1>Category</h1>
             <div class="product-search-bar ms-auto">
                 <form action="#" method="GET" class="search-form">
                     <div class="search-input-wrapper">
