@@ -42,7 +42,6 @@ Route::get('/prices', function () {
 
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index'); // baguin nlng if wala nmn CRUD functionalities dito
-Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
 
 // Products Routes
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
@@ -59,3 +58,6 @@ Route::get('/products/{id}', function ($id) {
 Route::get('/products/{id}/edit', function ($id) {
     return view('products.edit', ['id' => $id]);
 })->name('products.edit');
+
+Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+Route::get('/inventory/update', [InventoryController::class, 'update'])->name('inventory.update');
