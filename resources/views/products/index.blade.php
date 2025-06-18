@@ -1,4 +1,4 @@
-{{-- filepath: resources/views/products/index.blade.php --}}
+@include('partials._delete')
 @extends('layouts.dashboard-layout')
 
 @section('title', 'Products')
@@ -28,7 +28,9 @@
                     <tr>
                         <td>Cat Food</td>
                         <td>Nutritious dry food for cats</td>
-                        <td></td>
+                        <td class="img-col">
+                            <img src="{{ asset('images/img-placeholder.png') }}" alt="Product Image">
+                        </td>
                         <td>CF-001</td>
                         <td>Food</td>
                         <td>₱500</td>
@@ -40,15 +42,18 @@
                             <a href="{{ route('products.edit', 1) }}" title="Edit">
                                 <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit" width="20">
                             </a>
-                            <a href="#" title="Delete" onclick="return confirm('Are you sure?')">
-                                <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
+                            <a href="#"
+                                onclick="openDeleteModal('{{ route('products.destroy', 1) }}'); return false;">
+                                <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete">
                             </a>
                         </td>
                     </tr>
                     <tr>
                         <td>Dog Leash</td>
                         <td>Durable nylon leash for dogs</td>
-                        <td></td>
+                        <td class="img-col">
+                            <img src="{{ asset('images/img-placeholder.png') }}" alt="Product Image">
+                        </td>
                         <td>DL-002</td>
                         <td>Accessories</td>
                         <td>₱250</td>
@@ -60,15 +65,18 @@
                             <a href="{{ route('products.edit', 2) }}" title="Edit">
                                 <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit" width="20">
                             </a>
-                            <a href="#" title="Delete" onclick="return confirm('Are you sure?')">
-                                <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
+                            <a href="#"
+                                onclick="openDeleteModal('{{ route('products.destroy', 2) }}'); return false;">
+                                <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete">
                             </a>
                         </td>
                     </tr>
                     <tr>
                         <td>Cat Litter</td>
                         <td>Clumping litter for odor control</td>
-                        <td></td>
+                        <td class="img-col">
+                            <img src="{{ asset('images/img-placeholder.png') }}" alt="Product Image">
+                        </td>
                         <td>CL-003</td>
                         <td>Supplies</td>
                         <td>₱180</td>
@@ -80,16 +88,17 @@
                             <a href="{{ route('products.edit', 3) }}" title="Edit">
                                 <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit" width="20">
                             </a>
-                            <a href="#" title="Delete" onclick="return confirm('Are you sure?')">
-                                <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
+                            <a href="#"
+                                onclick="openDeleteModal('{{ route('products.destroy', 3) }}'); return false;">
+                                <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete">
                             </a>
                         </td>
                     </tr>
-                    {{-- @foreach ($products as $product)
+                    @foreach ($products as $product)
                         <tr>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->description }}</td>
-                            <td>{{ $product->image }}</td>
+                            <td class="img-col">{{ $product->image }}</td>
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->category->name ?? '' }}</td>
                             <td>{{ $product->price }}</td>
@@ -101,18 +110,13 @@
                                 <a href="{{ route('products.edit', $product) }}" title="Edit">
                                     <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit" width="20">
                                 </a>
-                                <form action="{{ route('products.destroy', $product) }}" method="POST"
-                                    style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" style="background:none; border:none; padding:0;" title="Delete"
-                                        onclick="return confirm('Are you sure?')">
-                                        <img src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
-                                    </button>
-                                </form>
+                                <a href="#"
+                                    onclick="openDeleteModal('{{ route('products.destroy', $product->id) }}'); return false;">
+                                    <img src="{{ asset('images/delete.png') }}" alt="Delete" width="24">
+                                </a>
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
