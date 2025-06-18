@@ -1,4 +1,3 @@
-{{-- filepath: resources/views/inventory/index.blade.php --}}
 @extends('layouts.dashboard-layout')
 
 @section('title', 'Inventory')
@@ -41,6 +40,11 @@
                     @endfor
                 </tbody>
             </table>
+        </div>
+        <div class="mt-2 text-end">
+            <a href="{{ route('inventory.update') }}" role="button" class="add-btn">
+                Update Inventory
+            </a>
         </div>
     </section>
 @endsection
