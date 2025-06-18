@@ -418,6 +418,7 @@ footer a img {
 .d-product .table-responsive,
 .d-category .table-responsive,
 .d-inventory .table-responsive,
+.d-inventory-update .table-responsive,
 .d-prices .table-responsive {
     max-width: 100%;
     overflow-x: auto;
@@ -427,6 +428,7 @@ footer a img {
 .d-product .table,
 .d-category .table,
 .d-inventory .table,
+.d-inventory-update .table,
 .d-prices .table {
     width: 100%;
     table-layout: auto;
@@ -437,9 +439,11 @@ footer a img {
 .d-product .table-bordered,
 .d-category .table-bordered,
 .d-inventory .table-bordered,
+.d-inventory-update .table-bordered,
 .d-prices .table-bordered {
     border: 2px solid #222;
 }
+
 .d-overview .table-bordered th,
 .d-overview .table-bordered td,
 .d-product .table-bordered th,
@@ -448,6 +452,8 @@ footer a img {
 .d-category .table-bordered td,
 .d-inventory .table-bordered th,
 .d-inventory .table-bordered td,
+.d-inventory-update .table-bordered th,
+.d-inventory-update .table-bordered td,
 .d-prices .table-bordered th,
 .d-prices .table-bordered td {
     padding: 1.2em 0.2em;
@@ -458,11 +464,16 @@ footer a img {
 .d-product .table-bordered th,
 .d-category .table-bordered th,
 .d-inventory .table-bordered th,
+.d-inventory-update .table-bordered th,
 .d-prices .table-bordered th {
     background-color: var(--color-primary);
     color: white;
     font-family: "Baloo", sans-serif;
     font-weight: bold;
+}
+
+.img-col img {
+    width: 40px;
 }
 
 .icon-col {
@@ -624,4 +635,85 @@ footer a img {
 
 .upload img {
     width: 18px;
+}
+
+.delete-modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    box-shadow: 0 2px 16px #0002;
+    max-width: 340px;
+    margin: auto;
+    border: 3px solid #a084e8;
+}
+
+.delete-img {
+    font-size: 4rem;
+    color: #a084e8;
+    line-height: 1;
+}
+
+.delete-modal .check {
+    background: var(--color-accent);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 10px;
+    transition: background 0.2s;
+}
+
+.delete-modal .cross {
+    background: red;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.d-inventory-update a {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.5rem;
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-accent);
+    border-radius: 8px;
+    padding: 0.2rem .4rem;
+}
+
+.d-inventory-update .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+/* Make quantity and stock columns fill the cell and align center */
+.d-inventory-update td input[type="number"],
+.d-inventory-update td select {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.5rem;
+    box-sizing: border-box;
+    display: block;
 }
