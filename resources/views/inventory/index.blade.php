@@ -29,15 +29,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for ($i = 0; $i < 3; $i++)
+                    @foreach ($inventory as $item)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $item['name'] }}</td>
+                            <td>
+                                <img src="{{ asset($item['image']) }}" alt="Product Image" width="40">
+                            </td>
+                            <td>{{ $item['sku'] }}</td>
+                            <td>{{ $item['quantity'] }}</td>
+                            <td>{{ $item['stock'] }}</td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>
