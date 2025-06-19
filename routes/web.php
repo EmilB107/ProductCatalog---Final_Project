@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductController; // Import your controller
+use App\Http\Controllers\PriceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,15 +36,14 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
 
-Route::get('/prices', function () {
-    return view('prices.index');
-})->name('prices');
-
 
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
-Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index'); // baguin nlng if wala nmn CRUD functionalities dito
 
-// Products Routes
+
+
+
+
+// PRODUCTS ROUTES
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
@@ -59,5 +59,31 @@ Route::get('/products/{id}/edit', function ($id) {
     return view('products.edit', ['id' => $id]);
 })->name('products.edit');
 
+
+
+
+
+
+// CATEGORIES ROUTES (with dummy data)
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+Route::get('/categories/create', function () {
+    return view('categories.create');
+})->name('categories.create');
+Route::get('/categories/{id}', [CategoriesController::class, 'show'])->name('categories.show');
+Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
+Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+
+
+
+
+
+// INVENTORY ROUTES
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
 Route::get('/inventory/update', [InventoryController::class, 'update'])->name('inventory.update');
+
+
+
+
+// PRICES ROUTES
+Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
+Route::get('/prices/{id}/edit', [PriceController::class, 'edit'])->name('prices.edit');
