@@ -1,9 +1,14 @@
-{{-- filepath: resources/views/categories/index.blade.php --}}
+@include('partials._delete')
 @extends('layouts.dashboard-layout')
 
 @section('title', 'Categories')
 
 @section('content')
+    @php
+        // Set this to 'Admin' or 'PM' to test different roles
+        $role = 'Admin';
+    @endphp
+
     <section class="d-category">
         <div class="d-flex mb-3">
             <h1>Category</h1>
@@ -25,18 +30,43 @@
                         <th>Category</th>
                         <th>Sub Category</th>
                         <th>Number of Products</th>
+                        @if ($role === 'Admin')
+                            <th>Actions</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
-                    @for ($i = 0; $i < 3; $i++)
+                    @foreach ($categories as $category)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $category['name'] }}</td>
+                            <td>{{ $category['sub_category'] }}</td>
+                            <td>{{ $category['products_count'] }}</td>
+                            @if ($role === 'Admin')
+                                <td class="icon-col">
+                                    <a href="{{ route('categories.show', $category['id']) }}" title="View">
+                                        <img class="icon" src="{{ asset('images/view.png') }}" alt="View"
+                                            width="20">
+                                    </a>
+                                    <a href="{{ route('categories.edit', $category['id']) }}" title="Edit">
+                                        <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit"
+                                            width="20">
+                                    </a>
+                                    <a href="#"
+                                        onclick="openDeleteModal('{{ route('categories.destroy', $category['id']) }}'); return false;">
+                                        <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete">
+                                    </a>
+                                </td>
+                            @endif
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>
+        @if ($role === 'Admin')
+            <div class="mt-2 text-end">
+                <a href="{{ route('categories.create') }}" role="button" class="add-btn">
+                    Add Category
+                </a>
+        @endif
     </section>
 @endsection
