@@ -6,7 +6,7 @@
 @section('content')
     <section class="d-product-create">
         <div class="d-flex mb-3">
-            @include('partials._return')
+            @include('partials._return', ['route' => 'products.index'])
             <h1 class="mx-auto">Create Product</h1>
         </div>
         <form>
