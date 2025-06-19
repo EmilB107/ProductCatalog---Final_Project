@@ -24,15 +24,21 @@
                     <tr>
                         <th>Product Name</th>
                         <th>Price</th>
+                        <th style="width: 50px;"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @for ($i = 0; $i < 3; $i++)
+                    @foreach ($prices as $price)
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $price['name'] }}</td>
+                            <td>{{ $price['price'] }}</td>
+                            <td class="icon-col">
+                                <a href="{{ route('prices.edit', $price['name']) }}" title="Edit">
+                                    <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit">
+                                </a>
+                            </td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>
