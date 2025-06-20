@@ -421,7 +421,8 @@ footer a img {
 .d-inventory .table-responsive,
 .d-inventory-update .table-responsive,
 .d-prices .table-responsive,
-.d-prices-edit .table-responsive {
+.d-prices-edit .table-responsive,
+.admin-list .table-responsive {
     max-width: 100%;
     overflow-x: auto;
 }
@@ -433,7 +434,8 @@ footer a img {
 .d-inventory .table,
 .d-inventory-update .table,
 .d-prices .table,
-.d-prices-edit .table {
+.d-prices-edit .table,
+.admin-list .table {
     width: 100%;
     table-layout: auto;
     font-size: 0.575rem;
@@ -446,7 +448,8 @@ footer a img {
 .d-inventory .table-bordered,
 .d-inventory-update .table-bordered,
 .d-prices .table-bordered,
-.d-prices-edit .table-bordered {
+.d-prices-edit .table-bordered,
+.admin-list .table-bordered {
     border: 2px solid #222;
 }
 
@@ -465,7 +468,9 @@ footer a img {
 .d-prices .table-bordered th,
 .d-prices .table-bordered td,
 .d-prices-edit .table-bordered th,
-.d-prices-edit .table-bordered td {
+.d-prices-edit .table-bordered td,
+.admin-list .table-bordered th,
+.admin-list .table-bordered td {
     padding: 1.2em 0.2em;
     word-break: break-word;
 }
@@ -477,7 +482,8 @@ footer a img {
 .d-inventory .table-bordered th,
 .d-inventory-update .table-bordered th,
 .d-prices .table-bordered th,
-.d-prices-edit .table-bordered th {
+.d-prices-edit .table-bordered th,
+.admin-list .table-bordered th {
     background-color: var(--color-primary);
     color: white;
     font-family: "Baloo", sans-serif;
@@ -789,4 +795,26 @@ footer a img {
     font-size: 0.5rem;
     box-sizing: border-box;
     display: block;
+}
+
+.sa-overview .buttons {
+    width: 120px;
+}
+
+.sa-overview .card {
+    height: 120px;
+}
+
+.admin-img {
+    width: 50px;
+    height: auto;
+}
+
+.pm-img {
+    width: auto;
+    height: 45px;
+}
+
+.permission-col {
+    width: 180px;
 }
