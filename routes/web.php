@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductController; // Import your controller
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,3 +88,38 @@ Route::get('/inventory/update', [InventoryController::class, 'update'])->name('i
 // PRICES ROUTES
 Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
 Route::get('/prices/{id}/edit', [PriceController::class, 'edit'])->name('prices.edit');
+
+
+
+
+
+// SUPERADMIN ROUTES
+Route::get('/superadmin', function () {
+    return view('superadmin.index');
+})->name('superadmin.index');
+
+
+
+// USER ROUTE
+Route::get('/user', function () {
+    return view('user.index');
+})->name('user.index');
+
+
+
+
+// ADMIN ROUTES
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+Route::get('/admin/{id}', [AdminController::class, 'show'])->name('admin.show');
+Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+
+
+
+
+// PROJECT MANAGER ROUTE
+Route::get('/project-manager', function () {
+    return view('project-manager.index');
+})->name('project-manager.index');
+
