@@ -98,28 +98,26 @@ Route::get('/superadmin', function () {
     return view('superadmin.index');
 })->name('superadmin.index');
 
+Route::prefix('superadmin')->group(function () {
+    // USER ROUTES
+    Route::get('/user', [\App\Http\Controllers\UsersController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [\App\Http\Controllers\UsersController::class, 'create'])->name('user.create');
+    Route::get('/user/{id}', [\App\Http\Controllers\UsersController::class, 'show'])->name('user.show');
+    Route::get('/user/{id}/edit', [\App\Http\Controllers\UsersController::class, 'edit'])->name('user.edit');
+    Route::delete('/user/{id}', [\App\Http\Controllers\UsersController::class, 'destroy'])->name('user.destroy');
 
+    // ADMIN ROUTES
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+    Route::get('/admin/{id}', [AdminController::class, 'show'])->name('admin.show');
+    Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
-// USER ROUTE
-Route::get('/user', function () {
-    return view('user.index');
-})->name('user.index');
-
-
-
-
-// ADMIN ROUTES
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
-Route::get('/admin/{id}', [AdminController::class, 'show'])->name('admin.show');
-Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
-Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
-
-
-
-
-// PROJECT MANAGER ROUTE
-Route::get('/project-manager', function () {
-    return view('project-manager.index');
-})->name('project-manager.index');
+    // PROJECT MANAGER ROUTES
+    Route::get('/project-manager', [\App\Http\Controllers\ProjManController::class, 'index'])->name('project-manager.index');
+    Route::get('/project-manager/create', [\App\Http\Controllers\ProjManController::class, 'create'])->name('project-manager.create');
+    Route::get('/project-manager/{id}', [\App\Http\Controllers\ProjManController::class, 'show'])->name('project-manager.show');
+    Route::get('/project-manager/{id}/edit', [\App\Http\Controllers\ProjManController::class, 'edit'])->name('project-manager.edit');
+    Route::delete('/project-manager/{id}', [\App\Http\Controllers\ProjManController::class, 'destroy'])->name('project-manager.destroy');
+});
 
