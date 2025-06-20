@@ -590,6 +590,14 @@ footer a img {
     font-size: 0.8rem;
 }
 
+.crud-card {
+    border: .2px solid black;
+    border-radius: 2rem;
+    box-shadow: 0 2px 16px #0002;
+    width: 300px;
+    padding: 1rem;
+}
+
 .crud-card b {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
