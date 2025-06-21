@@ -51,7 +51,7 @@
                                         <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit"
                                             width="20">
                                     </a>
-                                    <a href="#"
+                                    <a href=""
                                         onclick="openDeleteModal('{{ route('categories.destroy', $category['id']) }}'); return false;">
                                         <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete">
                                     </a>

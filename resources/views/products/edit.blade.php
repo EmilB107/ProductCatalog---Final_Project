@@ -1,3 +1,4 @@
+{{-- filepath: resources/views/products/edit.blade.php --}}
 @extends('layouts.dashboard-layout')
 
 @section('title', 'Edit Product')
@@ -8,72 +9,129 @@
             @include('partials._return', ['route' => 'products.index'])
             <h1 class="mx-auto">Edit Product</h1>
         </div>
-        <form>
+
+        {{-- Display validation errors --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
             <div class="crud-card d-flex gap-4 align-items-start mx-auto">
                 <div>
                     <div class="mb-3 d-flex align-items-center">
-                        <input type="text" id="product_name" name="product_name" value="Cat Food" class="form-control fw-bold"
-                            placeholder="Product Name">
+                        <input type="text" id="product_name" name="product_name" class="form-control fw-bold @error('product_name') is-invalid @enderror"
+                            placeholder="Product Name" value="{{ old('product_name', $product->name) }}" required>
+                        @error('product_name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="sku" class="mb-0 me-2"><b>SKU</b></label>
-                        <input type="text" id="sku" name="sku" value="CF-001" class="form-control">
+                        <input type="text" id="sku" name="sku" class="form-control @error('sku') is-invalid @enderror" 
+                            placeholder="SKU" value="{{ old('sku', $product->sku) }}">
+                        @error('sku')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="description" class="mb-0 me-2"><b>Description</b></label>
-                        <input type="text" id="description" name="description" value="Nutritious dry food for cats"
-                            class="form-control">
+                        <input type="text" id="description" name="description" class="form-control @error('description') is-invalid @enderror" 
+                            placeholder="Description" value="{{ old('description', $product->description) }}">
+                        @error('description')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 d-flex flex-column flex-lg-row gap-3">
                         <div class="d-flex align-items-center">
                             <label for="category" class="mb-0 me-2"><b>Category</b></label>
-                            <select id="category" name="category" class="form-select">
-                                <option selected>Lorem Ipsum</option>
-                                <option>Food</option>
-                                <option>Accessories</option>
-                                <option>Supplies</option>
+                            <select id="category" name="category" class="form-select @error('category') is-invalid @enderror" required>
+                                <option value="" disabled>Select Category</option>
+                                <option value="Food" {{ old('category', $product->category->name ?? '') == 'Food' ? 'selected' : '' }}>Food</option>
+                                <option value="Accessories" {{ old('category', $product->category->name ?? '') == 'Accessories' ? 'selected' : '' }}>Accessories</option>
+                                <option value="Supplies" {{ old('category', $product->category->name ?? '') == 'Supplies' ? 'selected' : '' }}>Supplies</option>
                             </select>
+                            @error('category')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="d-flex align-items-center">
                             <label for="subcategory" class="mb-0 me-2"><b>Sub Category</b></label>
-                            <select id="subcategory" name="subcategory" class="form-select">
-                                <option selected>Lorem Ipsum</option>
-                                <option>Dry Food</option>
-                                <option>Wet Food</option>
-                                <option>Toys</option>
+                            <select id="subcategory" name="subcategory" class="form-select @error('subcategory') is-invalid @enderror">
+                                <option value="">Select Sub Category</option>
+                                <option value="Dry Food" {{ old('subcategory', $product->subCategory->name ?? '') == 'Dry Food' ? 'selected' : '' }}>Dry Food</option>
+                                <option value="Wet Food" {{ old('subcategory', $product->subCategory->name ?? '') == 'Wet Food' ? 'selected' : '' }}>Wet Food</option>
+                                <option value="Toys" {{ old('subcategory', $product->subCategory->name ?? '') == 'Toys' ? 'selected' : '' }}>Toys</option>
                             </select>
+                            @error('subcategory')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="price" class="mb-0 me-2"><b>Price</b></label>
-                        <input type="text" id="price" name="price" value="₱500" class="form-control">
+                        <input type="number" id="price" name="price" class="form-control @error('price') is-invalid @enderror" 
+                            placeholder="0.00" step="0.01" min="0" value="{{ old('price', $product->price) }}" required>
+                        @error('price')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="stock" class="mb-0 me-2"><b>Stock</b></label>
-                        <select id="stock" name="stock" class="form-select">
-                            <option selected>Low Stock</option>
-                            <option>In Stock</option>
-                            <option>Out of Stock</option>
+                        <select id="stock" name="stock" class="form-select @error('stock') is-invalid @enderror" required>
+                            <option value="" disabled>Select Stock Status</option>
+                            <option value="Low Stock" {{ old('stock', $product->stock_status) == 'Low Stock' ? 'selected' : '' }}>Low Stock</option>
+                            <option value="In Stock" {{ old('stock', $product->stock_status) == 'In Stock' ? 'selected' : '' }}>In Stock</option>
+                            <option value="Out of Stock" {{ old('stock', $product->stock_status) == 'Out of Stock' ? 'selected' : '' }}>Out of Stock</option>
                         </select>
+                        @error('stock')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
+
                 <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('images/img-placeholder.png') }}" alt="Product Image">
+                    <img id="image-preview" src="{{ $product->image_path ? asset('storage/' . $product->image_path) : asset('images/img-placeholder.png') }}" 
+                         alt="Product Image" style="max-width: 200px; max-height: 200px;">
                     <div class="d-flex align-items-center gap-2 mt-3 mb-3">
                         <span class="upload d-flex align-items-center">
                             <img src="{{ asset('images/upload.png') }}" alt="Upload">
                             <span class="ms-2 d-none d-lg-block">Upload File</span>
                         </span>
-                        <input type="file" id="product_image" name="product_image" class="d-none">
+                        <input type="file" id="product_image" name="product_image" class="d-none @error('product_image') is-invalid @enderror" accept="image/*">
                         <button type="button" class="btn btn-light"
                             onclick="document.getElementById('product_image').click();">Change Image</button>
+                        @error('product_image')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mt-3 d-flex gap-2">
-                        <a href="#" onclick="this.closest('form').submit(); return false;">Save</a>
-                        <a href="{{ route('products.index') }}">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="{{ route('products.index') }}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </div>
             </div>
         </form>
     </section>
+
+    <script>
+        // Image preview functionality
+        document.getElementById('product_image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('image-preview').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 @endsection

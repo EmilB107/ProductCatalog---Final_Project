@@ -848,7 +848,7 @@ footer a img {
 
 /* RESPONSIVENESS */
 
-@media (min-width: 1900px) {
+@media (min-width: 1536px) {
     nav {
         padding: 0.8rem !important;
     }
