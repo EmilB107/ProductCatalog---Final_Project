@@ -1,4 +1,3 @@
-{{-- filepath: resources/views/dashboard/index.blade.php --}}
 @extends('layouts.dashboard-layout')
 
 @section('title', 'Dashboard')
@@ -9,28 +8,28 @@
         <div class="d-grid">
             <div class="d-item d-flex text-center">
                 <img class="me-2" src="{{ asset('images/dashboard-01.png') }}" alt="Products Icon">
-                <div>
+                <div class="text">
                     <span class="num">500</span>
                     <span class="desc">Total Products</span>
                 </div>
             </div>
             <div class="d-item d-flex text-center">
                 <img class="me-2" src="{{ asset('images/dashboard-02.png') }}" alt="Items Icon">
-                <div>
+                <div class="text">
                     <span class="num">1000</span>
                     <span class="desc">Total Items</span>
                 </div>
             </div>
             <div class="d-item d-flex text-center">
                 <img class="me-2" src="{{ asset('images/dashboard-03.png') }}" alt="Sales Icon">
-                <div>
+                <div class="text">
                     <span class="num">Php 10,000</span>
                     <span class="desc">Total Sales</span>
                 </div>
             </div>
             <div class="d-item d-flex text-center">
                 <img class="me-2" src="{{ asset('images/dashboard-04.png') }}" alt="Orders Icon">
-                <div>
+                <div class="text">
                     <span class="num">1000</span>
                     <span class="desc">Total Orders</span>
                 </div>
@@ -44,7 +43,6 @@
                 <thead>
                     <tr>
                         <th>Product Name</th>
-                        <th>Description</th>
                         <th>Image</th>
                         <th>SKU</th>
                         <th>Category</th>
@@ -53,20 +51,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for ($i = 0; $i < 5; $i++)
+                    @foreach ($products as $product)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $product['name'] }}</td>
+                            <td>
+                                <img src="{{ asset($product['image']) }}" alt="Product Image" width="40">
+                            </td>
+                            <td>{{ $product['sku'] }}</td>
+                            <td>{{ $product['category'] }}</td>
+                            <td>₱ {{ number_format($product['price'], 2) }}</td>
+                            <td>{{ $product['stock'] }}</td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </section>
-
+    <script src="{{ asset('js/sidebar-height.js') }}"></script>
 @endsection
