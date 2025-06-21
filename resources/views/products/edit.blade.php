@@ -10,55 +10,53 @@
         </div>
         <form>
             <div class="crud-card d-flex gap-4 align-items-start mx-auto">
-                <div>
+                <div class="left-col">
                     <div class="mb-3 d-flex align-items-center">
-                        <input type="text" id="product_name" name="product_name" value="Cat Food" class="form-control fw-bold"
-                            placeholder="Product Name">
+                        <input type="text" id="product_name" name="product_name" value="{{ $product['name'] }}"
+                            class="form-control fw-bold" placeholder="Product Name">
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="sku" class="mb-0 me-2"><b>SKU</b></label>
-                        <input type="text" id="sku" name="sku" value="CF-001" class="form-control">
+                        <input type="text" id="sku" name="sku" value="{{ $product['sku'] }}" class="form-control">
                     </div>
-                    <div class="mb-3 d-flex align-items-center">
-                        <label for="description" class="mb-0 me-2"><b>Description</b></label>
-                        <input type="text" id="description" name="description" value="Nutritious dry food for cats"
-                            class="form-control">
+                    <div class="mb-3">
+                        <label for="description" class="mb-0"><b>Description</b></label>
+                        <input type="text" id="description" name="description" value="{{ $product['description'] }}"
+                            class="form-control mt-2">
                     </div>
                     <div class="mb-3 d-flex flex-column flex-lg-row gap-3">
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex flex-column  align-items-center">
                             <label for="category" class="mb-0 me-2"><b>Category</b></label>
                             <select id="category" name="category" class="form-select">
-                                <option selected>Lorem Ipsum</option>
-                                <option>Food</option>
-                                <option>Accessories</option>
-                                <option>Supplies</option>
+                                <option {{ $product['category'] == 'Dog Supplies' ? 'selected' : '' }}>Dog Supplies
+                                </option>
+                                <option {{ $product['category'] == 'Cat Supplies' ? 'selected' : '' }}>Cat Supplies
+                                </option>
+                                <option {{ $product['category'] == 'Grooming' ? 'selected' : '' }}>Grooming</option>
                             </select>
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex flex-column  align-items-center">
                             <label for="subcategory" class="mb-0 me-2"><b>Sub Category</b></label>
                             <select id="subcategory" name="subcategory" class="form-select">
-                                <option selected>Lorem Ipsum</option>
-                                <option>Dry Food</option>
-                                <option>Wet Food</option>
-                                <option>Toys</option>
+                                <option {{ $product['subcategory'] == 'Food' ? 'selected' : '' }}>Food</option>
+                                <option {{ $product['subcategory'] == 'Toys' ? 'selected' : '' }}>Toys</option>
+                                <option {{ $product['subcategory'] == 'Dry Food' ? 'selected' : '' }}>Dry Food</option>
+                                <option {{ $product['subcategory'] == 'Wet Food' ? 'selected' : '' }}>Wet Food</option>
                             </select>
                         </div>
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="price" class="mb-0 me-2"><b>Price</b></label>
-                        <input type="text" id="price" name="price" value="₱500" class="form-control">
+                        <input type="text" id="price" name="price" value="{{ $product['price'] }}" class="form-control">
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="stock" class="mb-0 me-2"><b>Stock</b></label>
-                        <select id="stock" name="stock" class="form-select">
-                            <option selected>Low Stock</option>
-                            <option>In Stock</option>
-                            <option>Out of Stock</option>
-                        </select>
+                        <input type="number" id="stock" name="stock" value="{{ $product['stock'] }}" class="form-control"
+                            min="0">
                     </div>
                 </div>
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('images/img-placeholder.png') }}" alt="Product Image">
+                <div class="d-flex flex-column align-items-center ms-auto">
+                    <img src="{{ asset($product['image']) }}" alt="Product Image">
                     <div class="d-flex align-items-center gap-2 mt-3 mb-3">
                         <span class="upload d-flex align-items-center">
                             <img src="{{ asset('images/upload.png') }}" alt="Upload">
