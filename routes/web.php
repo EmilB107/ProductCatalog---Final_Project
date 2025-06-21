@@ -33,9 +33,10 @@ Route::post('/signup', function () {
     // You can replace this with actual signup logic later
 })->name('signup.submit');
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->name('dashboard');
+
+
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
 
 
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
@@ -47,25 +48,16 @@ Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit
 // PRODUCTS ROUTES
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-
-// Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-// Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-// Temporary routes for products until CRUD is implemented
-Route::get('/products/{id}', function ($id) {
-    return view('products.show', ['id' => $id]);
-})->name('products.show');
-
-Route::get('/products/{id}/edit', function ($id) {
-    return view('products.edit', ['id' => $id]);
-})->name('products.edit');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 
 
 
 
 
-// CATEGORIES ROUTES (with dummy data)
+// CATEGORIES ROUTES
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
 Route::get('/categories/create', function () {
     return view('categories.create');
