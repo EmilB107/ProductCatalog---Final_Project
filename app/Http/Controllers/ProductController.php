@@ -3,44 +3,76 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product; // Don't forget to import the Product model
 
 class ProductController extends Controller
 {
+    // Dummy data as a class property
+    protected $products = [
+        1 => [
+            'id' => 1,
+            'name' => 'Cat Food',
+            'description' => 'Nutritious dry food for cats',
+            'image' => 'images/img-placeholder.png',
+            'sku' => 'CF-001',
+            'category' => 'Food',
+            'subcategory' => 'Dry Food',
+            'price' => '₱500',
+            'stock' => 25,
+        ],
+        2 => [
+            'id' => 2,
+            'name' => 'Dog Leash',
+            'description' => 'Durable nylon leash for dogs',
+            'image' => 'images/img-placeholder.png',
+            'sku' => 'DL-002',
+            'category' => 'Accessories',
+            'subcategory' => 'Leash',
+            'price' => '₱250',
+            'stock' => 40,
+        ],
+        3 => [
+            'id' => 3,
+            'name' => 'Cat Litter',
+            'description' => 'Clumping litter for odor control',
+            'image' => 'images/img-placeholder.png',
+            'sku' => 'CL-003',
+            'category' => 'Supplies',
+            'subcategory' => 'Litter',
+            'price' => '₱180',
+            'stock' => 60,
+        ],
+    ];
+
     /**
      * Display a listing of the products.
      */
     public function index()
     {
-        // Fetch all products from the database
-        // We'll also eager load the category and subCategory relationships
-        // to avoid N+1 query problem.
-        $products = Product::with(['category', 'subCategory'])->get();
-
-        // Pass the products to a view
+        // Pass all products as a numerically indexed array
+        $products = array_values($this->products);
         return view('products.index', compact('products'));
     }
 
-    // You can add other methods like show, create, store, edit, update, destroy later
-
     public function create()
-{
-    return view('products.create');
-}
-
-    public function show(Product $product)
     {
+        return view('products.create');
+    }
+
+    public function show($id)
+    {
+        $product = $this->products[$id] ?? $this->products[1];
         return view('products.show', compact('product'));
     }
 
-    public function edit(Product $product)
+    public function edit($id)
     {
+        $product = $this->products[$id] ?? $this->products[1];
         return view('products.edit', compact('product'));
     }
 
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        $product->delete();
+        // Dummy destroy, just redirect
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 }
