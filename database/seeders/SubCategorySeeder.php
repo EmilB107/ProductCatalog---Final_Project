@@ -15,32 +15,40 @@ class SubCategorySeeder extends Seeder
     public function run(): void
     {
         // Get the IDs of the categories created by CategorySeeder
-        $dogsCategory = Category::where('name', 'Dogs')->first();
-        $catsCategory = Category::where('name', 'Cats')->first();
+        $dogsCategory = Category::where('name', 'Dog Supplies')->first();
+        $catsCategory = Category::where('name', 'Cat Supplies')->first();
 
         if ($dogsCategory) {
             SubCategory::create([
                 'category_id' => $dogsCategory->id,
-                'name' => 'Dog Food'
+                'name' => 'Dog Dry Food'
             ]);
             SubCategory::create([
                 'category_id' => $dogsCategory->id,
-                'name' => 'Dog Toys'
+                'name' => 'Dog Wet Food'
             ]);
             SubCategory::create([
                 'category_id' => $dogsCategory->id,
-                'name' => 'Dog Beds'
+                'name' => 'Dog Toy'
+            ]);
+            SubCategory::create([
+                'category_id' => $dogsCategory->id,
+                'name' => 'Dog Vitamins'
             ]);
         }
 
         if ($catsCategory) {
             SubCategory::create([
                 'category_id' => $catsCategory->id,
-                'name' => 'Cat Food'
+                'name' => 'Cat Dry Food'
             ]);
             SubCategory::create([
                 'category_id' => $catsCategory->id,
-                'name' => 'Cat Toys'
+                'name' => 'Cat Wet Food'
+            ]);
+            SubCategory::create([
+                'category_id' => $catsCategory->id,
+                'name' => 'Cat Toy'
             ]);
             SubCategory::create([
                 'category_id' => $catsCategory->id,
