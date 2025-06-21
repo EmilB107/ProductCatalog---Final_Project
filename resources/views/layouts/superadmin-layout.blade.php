@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="d-nav navbar navbar-expand-lg">
         <div class="container">
             @include('partials._brand')
             <div class="d-flex align-items-center">
