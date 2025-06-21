@@ -13,15 +13,9 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::create(['name' => 'admin']);
-        Role::create(['name' => 'customer']);
-        Role::create(['name' => 'editor']); // Optional: if you need another role
+        Role::create(['name' => 'Super Admin']);
+        Role::create(['name' => 'Admin']);
+        Role::create(['name' => 'Project Manager']);
 
-        // You can also use insert for multiple records:
-        // Role::insert([
-        //     ['name' => 'admin'],
-        //     ['name' => 'customer'],
-        //     ['name' => 'editor'],
-        // ]);
     }
 }
