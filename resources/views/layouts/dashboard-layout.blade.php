@@ -40,31 +40,31 @@
                 <li class="ms-1 mb-3">
                     <a class="d-flex align-items-center" href="{{ route('dashboard') }}">
                         <img src="{{ asset('images/sidenav-02.png') }}" alt="Home Icon">
-                        <span class="menu-text ms-2">Home</span>
+                        <span class="menu-text">Home</span>
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
                     <a class="d-flex align-items-center" href="{{ route('products.index') }}">
                         <img src="{{ asset('images/sidenav-03.png') }}" alt="Products Icon">
-                        <span class="menu-text ms-2">Products</span>
+                        <span class="menu-text">Products</span>
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
                     <a class="d-flex align-items-center" href="{{ route('categories.index') }}">
                         <img src="{{ asset('images/sidenav-04.png') }}" alt="Categories Icon">
-                        <span class="menu-text ms-2">Categories</span>
+                        <span class="menu-text">Categories</span>
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
                     <a class="d-flex align-items-center" href="{{ route('inventory.index') }}">
                         <img src="{{ asset('images/sidenav-05.png') }}" alt="Inventory Icon">
-                        <span class="menu-text ms-2">Inventory</span>
+                        <span class="menu-text">Inventory</span>
                     </a>
                 </li>
                 <li class="ms-1 mb-3">
                     <a class="d-flex align-items-center" href="{{ route('prices.index') }}">
                         <img src="{{ asset('images/sidenav-06.png') }}" alt="Prices Icon">
-                        <span class="menu-text ms-2">Prices</span>
+                        <span class="menu-text">Prices</span>
                     </a>
                 </li>
             </ul>
