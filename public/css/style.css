@@ -1,19 +1,24 @@
+/* larger screen - go to RESPONSIVENESS section for media queries */
+
 @font-face {
     /* sans-serif */
     font-family: "Baloo";
-    src: url("/fonts/Baloo2-Regular.ttf") format("truetype");
+    src: url("/fonts/Baloo2-VariableFont.ttf") format("truetype");
+    font-style: normal;
 }
 
 @font-face {
     /* sans-serif */
     font-family: "Nunito";
-    src: url("/fonts/Nunito-Regular.ttf") format("truetype");
+    src: url("/fonts/Nunito-VariableFont.ttf") format("truetype");
+    font-style: normal;
 }
 
 @font-face {
     /* sans-serif */
     font-family: "Quicksand";
-    src: url("/fonts/Quicksand-Regular.ttf") format("truetype");
+    src: url("/fonts/Quicksand-VariableFont.ttf") format("truetype");
+    font-style: normal;
 }
 
 :root {
@@ -45,29 +50,29 @@ nav img {
     width: 30px;
 }
 
-header h1 {
+.left-col h1 {
     font-family: "Baloo", sans-serif;
     color: var(--color-secondary);
     font-size: 1.175rem;
     font-weight: bold;
 }
 
-header p {
+.left-col p {
     font-family: "Quicksand", sans-serif;
     color: var(--color-text-primary);
     font-size: 0.575rem;
 }
 
-header a {
+.left-col a {
     display: inline-block;
-    padding: 8px 24px;
+    padding: 0.4rem 1.4rem;
     background-color: var(--color-accent);
     color: white;
     text-decoration: none;
     font-family: "Quicksand", sans-serif;
     font-size: 0.675rem;
     font-weight: bold;
-    border-radius: 18px;
+    border-radius: 1rem;
 }
 
 .right-col {
@@ -91,7 +96,7 @@ header a {
     font-family: "Nunito", sans-serif;
     color: var(--color-secondary);
     font-size: 0.575rem;
-    padding: 10px 20px;
+    padding: 10px 0;
 }
 
 .know-us {
@@ -105,8 +110,8 @@ header a {
     font-family: "Baloo", sans-serif;
     color: var(--color-primary);
     text-transform: uppercase;
-    font-weight: bold;
     font-size: 1rem;
+    font-weight: bold;
 }
 
 .know-us span {
@@ -126,6 +131,7 @@ header a {
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: bold;
+    margin-top: 0.5rem;
 }
 
 .product h2 span {
@@ -158,6 +164,7 @@ header a {
     color: white;
     font-family: "Baloo", sans-serif;
     font-size: 1rem;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
@@ -167,7 +174,8 @@ header a {
 
 .featured .card {
     background-color: white;
-    border-radius: 32px;
+    border: 3px solid var(--color-border);
+    border-radius: 1.5rem;
     padding: 0 18px;
 }
 
@@ -222,6 +230,8 @@ header a {
     flex-direction: column;
     align-items: center;
     width: 350px;
+    margin-top: 1.5rem;
+    padding: 0 0.8rem;
 }
 
 .form h2 {
@@ -272,6 +282,7 @@ footer .credits {
 }
 
 footer .connect {
+    text-align: center;
     font-size: 0.7rem;
 }
 
@@ -417,8 +428,12 @@ footer a img {
 .d-overview .table-responsive,
 .d-product .table-responsive,
 .d-category .table-responsive,
+.d-category-show .table-responsive,
 .d-inventory .table-responsive,
-.d-prices .table-responsive {
+.d-inventory-update .table-responsive,
+.d-prices .table-responsive,
+.d-prices-edit .table-responsive,
+.admin-list .table-responsive {
     max-width: 100%;
     overflow-x: auto;
 }
@@ -426,8 +441,12 @@ footer a img {
 .d-overview .table,
 .d-product .table,
 .d-category .table,
+.d-category-show .table,
 .d-inventory .table,
-.d-prices .table {
+.d-inventory-update .table,
+.d-prices .table,
+.d-prices-edit .table,
+.admin-list .table {
     width: 100%;
     table-layout: auto;
     font-size: 0.575rem;
@@ -436,20 +455,33 @@ footer a img {
 .d-overview .table-bordered,
 .d-product .table-bordered,
 .d-category .table-bordered,
+.d-category-show .table-bordered,
 .d-inventory .table-bordered,
-.d-prices .table-bordered {
+.d-inventory-update .table-bordered,
+.d-prices .table-bordered,
+.d-prices-edit .table-bordered,
+.admin-list .table-bordered {
     border: 2px solid #222;
 }
+
 .d-overview .table-bordered th,
 .d-overview .table-bordered td,
 .d-product .table-bordered th,
 .d-product .table-bordered td,
 .d-category .table-bordered th,
 .d-category .table-bordered td,
+.d-category-show .table-bordered th,
+.d-category-show .table-bordered td,
 .d-inventory .table-bordered th,
 .d-inventory .table-bordered td,
+.d-inventory-update .table-bordered th,
+.d-inventory-update .table-bordered td,
 .d-prices .table-bordered th,
-.d-prices .table-bordered td {
+.d-prices .table-bordered td,
+.d-prices-edit .table-bordered th,
+.d-prices-edit .table-bordered td,
+.admin-list .table-bordered th,
+.admin-list .table-bordered td {
     padding: 1.2em 0.2em;
     word-break: break-word;
 }
@@ -457,12 +489,20 @@ footer a img {
 .d-overview .table-bordered th,
 .d-product .table-bordered th,
 .d-category .table-bordered th,
+.d-category-show .table-bordered th,
 .d-inventory .table-bordered th,
-.d-prices .table-bordered th {
+.d-inventory-update .table-bordered th,
+.d-prices .table-bordered th,
+.d-prices-edit .table-bordered th,
+.admin-list .table-bordered th {
     background-color: var(--color-primary);
     color: white;
     font-family: "Baloo", sans-serif;
     font-weight: bold;
+}
+
+.img-col img {
+    width: 40px;
 }
 
 .icon-col {
@@ -561,6 +601,14 @@ footer a img {
     font-size: 0.8rem;
 }
 
+.crud-card {
+    border: 0.2px solid black;
+    border-radius: 2rem;
+    box-shadow: 0 2px 16px #0002;
+    width: 300px;
+    padding: 1rem;
+}
+
 .crud-card b {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
@@ -624,4 +672,377 @@ footer a img {
 
 .upload img {
     width: 18px;
+}
+
+.delete-modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    box-shadow: 0 2px 16px #0002;
+    max-width: 340px;
+    margin: auto;
+    border: 3px solid #a084e8;
+}
+
+.delete-img {
+    font-size: 4rem;
+    color: #a084e8;
+    line-height: 1;
+}
+
+.delete-modal .check {
+    background: var(--color-accent);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 10px;
+    transition: background 0.2s;
+}
+
+.delete-modal .cross {
+    background: red;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.d-inventory-update td a,
+.d-prices-edit td a {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.5rem;
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-accent);
+    border-radius: 8px;
+    padding: 0.2rem 0.4rem;
+}
+
+.d-inventory-update .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+/* Make quantity and stock columns fill the cell and align center */
+.d-inventory-update td input[type="number"],
+.d-inventory-update td select {
+    width: 30px;
+    margin: 0 auto;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.5rem;
+    box-sizing: border-box;
+    display: block;
+}
+
+.d-category-edit .card,
+.d-category-create .card {
+    max-width: 500px;
+    background: #fff;
+    border-radius: 20px;
+    border: 1.5px solid #e6e6e6;
+}
+
+.d-category-edit .form-label,
+.d-category-create .form-label {
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.d-category-edit .form-control,
+.d-category-create .form-control {
+    appearance: none;
+    background: #e6e6e6;
+    border: none;
+    font-size: 0.675rem;
+    font-weight: bold;
+}
+
+.d-category-edit span,
+.d-category-create span {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.d-category-edit svg,
+.d-category-create svg {
+    width: 24px;
+    height: 24px;
+    fill: #222;
+}
+
+.d-category-edit button,
+.d-category-create button {
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.675rem;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+}
+
+.d-prices-edit td input[type="number"] {
+    width: 50px;
+    margin: 0 auto;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.5rem;
+    box-sizing: border-box;
+    display: block;
+}
+
+.sa-overview .buttons {
+    width: 120px;
+}
+
+.sa-overview .card {
+    height: 120px;
+}
+
+.admin-img {
+    width: 50px;
+    height: auto;
+}
+
+.pm-img {
+    width: auto;
+    height: 45px;
+}
+
+.permission-col {
+    width: 180px;
+}
+
+.tamad-baloo {
+    font-family: "Baloo", sans-serif;
+}
+
+.tamad-nunito {
+    font-family: "Nunito", sans-serif;
+}
+
+/* RESPONSIVENESS */
+
+@media (min-width: 1900px) {
+    nav {
+        padding: 0.8rem !important;
+    }
+    nav img {
+        width: 70px;
+    }
+
+    nav span {
+        font-size: 2rem;
+        padding-left: 0.5rem;
+    }
+
+    nav a {
+        font-size: 1.6rem;
+    }
+
+    .d-nav a {
+        font-size: 1.5rem;
+    }
+
+    .d-nav p {
+        font-size: 1.2rem;
+    }
+
+    .row .left-col {
+        padding: 80px !important;
+    }
+
+    .left-col h1 {
+        font-size: 4.5rem;
+    }
+
+    .left-col p {
+        font-size: 1.5rem;
+    }
+
+    .left-col a {
+        padding: 0.4rem 3.5rem;
+        font-size: 1.8rem;
+        border-radius: 2rem;
+        margin-left: 0.8rem;
+        margin-top: 1.2rem;
+    }
+
+    .right-col img {
+        top: 68%;
+        transform: translate(-50%, -50%);
+        height: 680px;
+        width: auto;
+    }
+
+    .row-under p {
+        font-size: 1.8rem;
+        padding: 20px 30px;
+        padding-bottom: 60px;
+    }
+
+    .know-us {
+        background-position: bottom;
+    }
+
+    .know-us .row {
+        height: 900px;
+        padding-top: 8rem;
+    }
+
+    .know-us h2 {
+        font-size: 5.5rem;
+    }
+
+    .know-us p {
+        font-size: 2rem;
+        padding: 0 12rem !important;
+    }
+
+    .product {
+        margin-top: -30px; /* dko mafigure out san yung margin sa know-us section lol*/
+        margin-bottom: 2.5rem;
+    }
+
+    .product h2 {
+        font-size: 5.3rem;
+    }
+
+    .product img {
+        width: 55%;
+    }
+
+    .product h3 {
+        font-size: 2.3rem;
+        font-weight: bold;
+    }
+
+    .product p {
+        font-size: 1.5rem;
+        padding: 0.3rem 8rem;
+    }
+
+    .featured h2 {
+        font-size: 5.5rem;
+    }
+
+    .featured .card {
+        width: 350px;
+        height: auto;
+        border: 8px solid var(--color-border);
+        border-radius: 2.5rem;
+        padding: 0.5rem 0.8rem;
+        margin: 1rem 1.2rem;
+    }
+
+    .featured .card img {
+        width: 85%;
+    }
+
+    .featured h3 {
+        font-size: 1.5rem;
+    }
+
+    .featured .desc {
+        font-size: 1.2rem;
+    }
+
+    .featured .price {
+        font-size: 1.4rem;
+    }
+
+    .featured .stock {
+        font-size: 1.4rem;
+    }
+
+    .featured a {
+        padding: 0.5rem 2rem;
+        font-size: 1.5rem;
+        border-radius: 3rem;
+    }
+
+    .form {
+        width: 600px;
+        margin: 2.5rem auto;
+        display: flex;
+    }
+
+    .form h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem !important;
+    }
+
+    .form label {
+        font-size: 1.5rem;
+    }
+
+    .form input[type="text"],
+    .form textarea {
+        padding: 20px;
+        margin-bottom: 15px;
+        border: 3px solid var(--color-border);
+        border-radius: 8px;
+    }
+
+    .form button {
+        font-size: 1.5rem;
+        padding: 0.8rem 8rem;
+        border-radius: 2rem;
+    }
+
+    footer .row {
+        margin: 0 3rem;
+    }
+
+    footer h2 {
+        font-size: 3.5rem;
+        font-weight: bold;
+    }
+
+    footer .credits {
+        font-size: 1.3rem;
+    }
+
+    footer .connect {
+        text-align: end;
+        font-size: 2rem;
+        margin-right: 3rem;
+    }
+
+    footer a img {
+        width: 40px;
+    }
+
+    .footer-img {
+        display: block;
+        width: 1400px !important;
+        height: auto;
+        margin: 0 auto;
+        margin-top: -20px;
+    }
 }

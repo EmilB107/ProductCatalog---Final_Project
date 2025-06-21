@@ -5,7 +5,7 @@
 @section('content')
     <section class="d-product-edit">
         <div class="d-flex mb-3">
-            @include('partials._return')
+            @include('partials._return', ['route' => 'products.index'])
             <h1 class="mx-auto">Edit Product</h1>
         </div>
         <form>

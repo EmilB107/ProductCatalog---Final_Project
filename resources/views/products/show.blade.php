@@ -5,7 +5,7 @@
 @section('content')
     <section class="d-product-show">
         <div class="d-flex mb-3">
-            @include('partials._return')
+            @include('partials._return', ['route' => 'products.index'])
             <h1 class="mx-auto">View Product</h1>
         </div>
         <div class="crud-card d-flex gap-4 align-items-start mx-auto">
