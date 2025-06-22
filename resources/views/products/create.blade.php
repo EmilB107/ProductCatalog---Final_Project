@@ -1,4 +1,3 @@
-{{-- filepath: resources/views/products/create.blade.php --}}
 @extends('layouts.dashboard-layout')
 
 @section('title', 'Create Product')
@@ -24,7 +23,7 @@
         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="crud-card d-flex gap-4 align-items-start mx-auto">
-                <div>
+                <div class="left-col">
                     <div class="mb-3 d-flex align-items-center">
                         <input type="text" id="product_name" name="product_name" class="form-control fw-bold @error('product_name') is-invalid @enderror"
                             placeholder="Product Name" value="{{ old('product_name') }}" required>

@@ -16,7 +16,7 @@
 <body>
     <div class="container-fluid signup mt-5">
         <div class="row justify-content-center text-center">
-            <div class="col-10">
+            <div class="col">
                 <img src="{{ asset('images/signup.png') }}" alt="ARF &amp; MEOW CO. Logo">
                 <p class="comp-name mt-2">ARF &amp; MEOW CO.</p>
                 <h1>SIGN UP</h1>

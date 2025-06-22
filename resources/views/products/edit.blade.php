@@ -25,7 +25,7 @@
             @csrf
             @method('PUT')
             <div class="crud-card d-flex gap-4 align-items-start mx-auto">
-                <div>
+                <div class="left-col">
                     <div class="mb-3 d-flex align-items-center">
                         <input type="text" id="product_name" name="product_name" class="form-control fw-bold @error('product_name') is-invalid @enderror"
                             placeholder="Product Name" value="{{ old('product_name', $product->name) }}" required>
@@ -50,7 +50,7 @@
                         @enderror
                     </div>
                     <div class="mb-3 d-flex flex-column flex-lg-row gap-3">
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex flex-column  align-items-center">
                             <label for="category" class="mb-0 me-2"><b>Category</b></label>
                             <select id="category" name="category" class="form-select @error('category') is-invalid @enderror" required>
                                 <option value="" disabled>Select Category</option>
@@ -62,7 +62,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex flex-column  align-items-center">
                             <label for="subcategory" class="mb-0 me-2"><b>Sub Category</b></label>
                             <select id="subcategory" name="subcategory" class="form-select @error('subcategory') is-invalid @enderror">
                                 <option value="">Select Sub Category</option>

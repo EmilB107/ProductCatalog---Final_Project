@@ -16,10 +16,10 @@
                     <div class="mt-2"><b>Description</b> &nbsp; <span>{{ $product->description }}</span></div>
                     <div class="d-flex flex-column flex-lg-row gap-lg-4">
                         <div class="mt-2"><b>Category</b> &nbsp;
-                            <span>{{ $product->category ?? 'N/A' }}</span>
+                            <span>{{ $product->category->name ?? 'N/A' }}</span> {{-- Changed from $product->category to $product->category->name --}}
                         </div>
                         <div class="mt-2"><b>Sub Category</b> &nbsp;
-                            <span>{{ $product->subcategory ?? 'N/A' }}</span>
+                            <span>{{ $product->subCategory->name ?? 'N/A' }}</span> {{-- Changed from $product->subcategory to $product->subCategory->name --}}
                         </div>
                     </div>
                     <div class="mt-2"><b>Price</b> &nbsp; <span>₱{{ number_format($product->price, 2) }}</span></div>

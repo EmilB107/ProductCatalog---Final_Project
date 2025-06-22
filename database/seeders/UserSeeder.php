@@ -15,22 +15,31 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $adminRole = Role::where('name', 'admin')->first();
-        $customerRole = Role::where('name', 'customer')->first();
+        $SuperAdminRole = Role::where('name', 'Super Admin')->first();
+        $AdminRole = Role::where('name', 'Admin')->first();
+        $PMRole = Role::where('name', 'Project Manager')->first();
 
         User::create([
-            'name' => 'Admin User',
+            'username' => 'Super Admin User',
+            'email' => 'superadmin@example.com',
+            'password' => Hash::make('password'), 
+            'role_id' => $SuperAdminRole->id,
+            'email_verified_at' => now(), 
+        ]);
+        
+        User::create([
+            'username' => 'Admin User',
             'email' => 'admin@example.com',
-            'password' => Hash::make('password'), // Hash the password!
-            'role_id' => $adminRole ? $adminRole->id : null,
-            'email_verified_at' => now(), // Optional: Mark as verified
+            'password' => Hash::make('password'), 
+            'role_id' => $AdminRole->id,
+            'email_verified_at' => now(), 
         ]);
 
         User::create([
-            'name' => 'Customer User',
-            'email' => 'customer@example.com',
+            'username' => 'PM User',
+            'email' => 'PM@example.com',
             'password' => Hash::make('password'),
-            'role_id' => $customerRole ? $customerRole->id : null,
+            'role_id' => $PMRole->id,
             'email_verified_at' => now(),
         ]);
     }

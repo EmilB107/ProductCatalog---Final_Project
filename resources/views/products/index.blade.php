@@ -25,14 +25,14 @@
                     <table class="table table-bordered text-center align-middle">
                         <thead>
                             <tr>
-                                <th>Product Name</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>SKU</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Stock</th>
-                                <th>Actions</th>
+                                <th style="width: 15%; min-width: 120px;">Product Name</th>
+                                <th style="width: 25%; min-width: 200px;">Description</th>
+                                <th style="width: 8%; min-width: 80px;">Image</th>
+                                <th style="width: 12%; min-width: 100px;">SKU</th>
+                                <th style="width: 12%; min-width: 100px;">Category</th>
+                                <th style="width: 10%; min-width: 80px;">Price</th>
+                                <th style="width: 10%; min-width: 80px;">Stock</th>
+                                <th style="width: 8%; min-width: 100px;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,7 +48,7 @@
                                         @endif
                                     </td>
                                     <td>{{ $product->sku }}</td>
-                                    <td>{{ $product->category ?? 'N/A' }}</td>
+                                    <td>{{ $product->category->name ?? 'N/A' }}</td> {{-- Changed from $product->category to $product->category->name --}}
                                     <td>₱{{ number_format($product->price, 2) }}</td>
                                     <td>{{ $product->stock_status ?? 'N/A' }}</td>
                                     <td class="icon-col">
@@ -59,7 +59,7 @@
                                             <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit" width="20">
                                         </a>
                                         <a href="" onclick="openDeleteModal('{{ route('products.destroy', $product->id) }}'); return false;">
-                                            <img src="{{ asset('images/delete.png') }}" alt="Delete" width="10">
+                                            <img src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
                                         </a>
                                     </td>
                                 </tr>
