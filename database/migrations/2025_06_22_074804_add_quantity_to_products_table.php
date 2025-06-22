@@ -6,17 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->integer('quantity')->default(0)->after('stock_status');
+            $table->integer('quantity')->default(0)->after('stock_status'); // Or wherever you want to place it
         });
     }
 
-    public function down()
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn(['quantity']);
+            $table->dropColumn('quantity');
         });
     }
 };

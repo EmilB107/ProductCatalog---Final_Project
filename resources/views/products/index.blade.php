@@ -32,7 +32,7 @@
                                 <th style="width: 12%; min-width: 100px;">SKU</th>
                                 <th style="width: 12%; min-width: 100px;">Category</th>
                                 <th style="width: 10%; min-width: 80px;">Price</th>
-                                <th style="width: 10%; min-width: 80px;">Stock</th>
+                                <th style="width: 10%; min-width: 80px;">Quantity</th>
                                 <th style="width: 8%; min-width: 100px;">Actions</th>
                             </tr>
                         </thead>
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <div class="fw-bold mb-1">Stock</div>
+                            <div class="fw-bold mb-1">Quantity</div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="stock[]" value="Low Stock"
                                     id="lowStock" {{ in_array('Low Stock', request('stock', [])) ? 'checked' : '' }}>

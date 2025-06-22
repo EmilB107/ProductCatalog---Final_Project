@@ -82,7 +82,7 @@
                         @enderror
                     </div>
                     <div class="mb-3 d-flex align-items-center">
-                        <label for="quantity" class="mb-0 me-2"><b>Stock</b></label>
+                        <label for="quantity" class="mb-0 me-2"><b>Quantity</b></label>
                         <input type="number" id="quantity" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
                             placeholder="0" min="0" value="{{ old('quantity') }}" required style="max-width: 80px;">
                         @error('quantity')

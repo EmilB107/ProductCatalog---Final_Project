@@ -24,7 +24,7 @@
                     </div>
                     <div class="mt-2"><b>Price</b> &nbsp; <span>₱{{ number_format($product->price, 2) }}</span></div>
                     {{-- Keep the left side showing the numeric stock --}}
-                    <div class="mt-2"><b>Stock</b> &nbsp; <span>{{ $product->quantity }}</span></div>
+                    <div class="mt-2"><b>Quantity</b> &nbsp; <span>{{ $product->quantity }}</span></div>
                 </div>
             </div>
             <div class="d-flex flex-column align-items-center">

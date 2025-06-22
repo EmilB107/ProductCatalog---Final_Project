@@ -57,14 +57,30 @@
                                         <td>{{ $item->sku }}</td>
                                         <td>
                                             <input type="number" name="quantity" class="form-control text-center"
-                                                value="{{ old('quantity', $item->quantity) }}" min="0" required>
+                                                value="{{ old('quantity', $item->quantity) }}" min="0" required
+                                                style="padding-left: 15px; padding-right: 15px;">
                                         </td>
                                         <td>
-                                            <select name="stock" class="form-select text-center" required>
-                                                <option value="Low_Stock" {{ old('stock', $item->stock_status) === 'Low_Stock' ? 'selected' : '' }}>Low Stock</option>
-                                                <option value="In_Stock" {{ old('stock', $item->stock_status) === 'In_Stock' ? 'selected' : '' }}>In Stock</option>
-                                                <option value="Out_Of_Stock" {{ old('stock', $item->stock_status) === 'Out_Of_Stock' ? 'selected' : '' }}>Out of Stock</option>
-                                            </select>
+                                            {{-- Dynamic Stock Status --}}
+                                            @php
+                                                $stockQuantity = (int) old('quantity', $item->quantity); // Get current or old quantity
+                                                $stockStatusText = '';
+                                                $stockColor = '';
+
+                                                if ($stockQuantity === 0) {
+                                                    $stockStatusText = 'Out of Stock';
+                                                    $stockColor = 'red';
+                                                } elseif ($stockQuantity > 0 && $stockQuantity <= 10) { // Assuming 1-10 is 'Low Stock'
+                                                    $stockStatusText = 'Low Stock';
+                                                    $stockColor = 'orange';
+                                                } else {
+                                                    $stockStatusText = 'In Stock';
+                                                    $stockColor = 'green';
+                                                }
+                                            @endphp
+                                            <span style="color: {{ $stockColor }}; font-weight: bold;">
+                                                {{ $stockStatusText }}
+                                            </span>
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-success btn-sm">Save</button>
