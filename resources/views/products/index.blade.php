@@ -53,7 +53,7 @@
                                     <td>{{ $product->sku }}</td>
                                     <td>{{ $product->category->name ?? 'N/A' }}</td>
                                     <td>₱{{ number_format($product->price, 2) }}</td>
-                                    <td>{{ $product->stock_status ?? 'N/A' }}</td>
+                                    <td>{{ $product->quantity ?? 'N/A' }}</td>
                                     <td>
                                         <div class="icon-col">
                                             <a href="{{ route('products.show', $product) }}" title="View">
