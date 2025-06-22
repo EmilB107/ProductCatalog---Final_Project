@@ -28,7 +28,7 @@
                 <h1>Satisfy your pet's <span class="d-block">needs here at</span><span class="d-block">Arf & Meow
                         Co.</span></h1>
                 <p>Get it here while supplies last!</p>
-                <a href="#">Shop now</a>
+                <a href="">Shop now</a>
             </div>
             <div class="col-6 right-col position-relative">
                 <img src="{{ asset('images/catty.png') }}" alt="Cat">
@@ -78,7 +78,7 @@
                 <p class="desc mx-3">Dress your feline in festive flair with this adorable Turkey Hat for Cats!</p>
                 <p class="price">P 190.00</p>
                 <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="#">Shop Now</a>
+                <a class="mb-3 mx-auto" href="">Shop Now</a>
             </div>
             <div class="col-8 card g-4">
                 <img class="p-4" src="{{ asset('images/fish_hat.png') }}" alt="Featured Dog">
@@ -88,7 +88,7 @@
                 </p>
                 <p class="price">P 190.00</p>
                 <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="#">Shop Now</a>
+                <a class="mb-3 mx-auto" href="">Shop Now</a>
             </div>
             <div class="col-8 card g-4">
                 <img class="p-4" src="{{ asset('images/tower_gray.png') }}" alt="Featured Dog">
@@ -97,7 +97,7 @@
                 </p>
                 <p class="price">P 7,000.00</p>
                 <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="#">Shop Now</a>
+                <a class="mb-3 mx-auto" href="">Shop Now</a>
             </div>
             <div class="col-8 card g-4">
                 <img class="p-4" src="{{ asset('images/sunglasses.png') }}" alt="Featured Dog">
@@ -107,14 +107,14 @@
                 </p>
                 <p class="price">P 180.00</p>
                 <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="#">Shop Now</a>
+                <a class="mb-3 mx-auto" href="">Shop Now</a>
             </div>
         </div>
     </section>
     <section class="container-fluid">
         <div class="form">
             <h2 class="mb-3">For any concern, send us a message:</h2>
-            <form class="ms-lg-4" action="#" method="post">
+            <form class="ms-lg-4" action="" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email Address:</label>
@@ -134,14 +134,14 @@
             <div class="col">
                 <p class="connect mb-1">Connect With Us:</p>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="mx-2"><img src="{{ asset('images/telephone.png') }}"
+                    <a href="" class="mx-2"><img src="{{ asset('images/telephone.png') }}"
                             alt="Phone"></a>
-                    <a href="#" class="mx-2"><img src="{{ asset('images/fb.png') }}" alt="Facebook"></a>
-                    <a href="#" class="mx-2"><img src="{{ asset('images/ig.png') }}" alt="Instagram"></a>
-                    <a href="#" class="mx-2"><img src="{{ asset('images/mail.png') }}" alt="E-Mail"></a>
-                    <a href="#" class="mx-2"><img src="{{ asset('images/shopee.png') }}"
+                    <a href="" class="mx-2"><img src="{{ asset('images/fb.png') }}" alt="Facebook"></a>
+                    <a href="" class="mx-2"><img src="{{ asset('images/ig.png') }}" alt="Instagram"></a>
+                    <a href="" class="mx-2"><img src="{{ asset('images/mail.png') }}" alt="E-Mail"></a>
+                    <a href="" class="mx-2"><img src="{{ asset('images/shopee.png') }}"
                             alt="Shopee"></a>
-                    <a href="#" class="mx-2"><img src="{{ asset('images/tik-tok.png') }}"
+                    <a href="" class="mx-2"><img src="{{ asset('images/tik-tok.png') }}"
                             alt="Tiktok"></a>
                 </div>
             </div>

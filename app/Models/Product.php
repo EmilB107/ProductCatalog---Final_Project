@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;    // Import Category model
-use App\Models\SubCategory; // Import SubCategory model
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -13,14 +11,21 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'sku',
         'description',
-        'price',
         'category_id',
         'sub_category_id',
+        'price',
+        'stock_status',
+        'image_path',
+    ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
     ];
 
     /**
-     * Get the category that owns the product.
+     * Relationship with Category
      */
     public function category()
     {
@@ -28,10 +33,29 @@ class Product extends Model
     }
 
     /**
-     * Get the subcategory that owns the product.
+     * Relationship with SubCategory
      */
-    public function subCategory() // Note: subCategory (singular) for belongsTo
+    public function subCategory()
     {
         return $this->belongsTo(SubCategory::class);
+    }
+
+    /**
+     * Get the full URL for the product image
+     */
+    public function getImageUrlAttribute()
+    {
+        if ($this->image_path) {
+            return asset('storage/' . $this->image_path);
+        }
+        return asset('images/img-placeholder.png');
+    }
+
+    /**
+     * Check if product has image
+     */
+    public function hasImage()
+    {
+        return !empty($this->image_path);
     }
 }
