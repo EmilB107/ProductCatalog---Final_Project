@@ -85,12 +85,8 @@
                     </div>
                     <div class="mb-3 d-flex align-items-center">
                         <label for="stock" class="mb-0 me-2"><b>Stock</b></label>
-                        <select id="stock" name="stock" class="form-select @error('stock') is-invalid @enderror" required>
-                            <option value="" disabled>Select Stock Status</option>
-                            <option value="Low Stock" {{ old('stock', $product->stock_status) == 'Low Stock' ? 'selected' : '' }}>Low Stock</option>
-                            <option value="In Stock" {{ old('stock', $product->stock_status) == 'In Stock' ? 'selected' : '' }}>In Stock</option>
-                            <option value="Out of Stock" {{ old('stock', $product->stock_status) == 'Out of Stock' ? 'selected' : '' }}>Out of Stock</option>
-                        </select>
+                        <input type="number" id="stock" name="stock" class="form-control @error('stock') is-invalid @enderror"
+                            placeholder="0" min="0" value="{{ old('stock', $product->stock) }}" required style="max-width: 80px;">
                         @error('stock')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
