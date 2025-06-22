@@ -815,12 +815,18 @@ footer a img {
     display: block;
 }
 
+.sa-overview h1 {
+    margin-top: 1rem;
+}
+
 .sa-overview .buttons {
     width: 120px;
+    margin-bottom: 1rem;
 }
 
 .sa-overview .card {
     height: 120px;
+    margin: 1rem 2rem;
 }
 
 .admin-img {
@@ -1393,5 +1399,47 @@ footer a img {
         width: 50px;
         height: 50px;
         font-size: 2rem;
+    }
+
+    .sa-overview h1 {
+        margin-top: 3rem;
+    }
+
+    .sa-overview h2 {
+        font-size: 3rem;
+    }
+
+    .sa-overview .card {
+        border-radius: 2rem;
+        width: 500px;
+        height: auto;
+        margin: 1rem 2rem;
+        padding: 1rem;
+    }
+
+    .admin-img {
+        width: 100px;
+        height: auto;
+        margin-top: .6rem;
+        margin-left: .5rem;
+    }
+
+    .pm-img {
+        width: auto;
+        height: 95px;
+        margin-top: .6rem;
+        margin-left: .5rem;
+    }
+
+    .sa-overview .buttons {
+        width: 240px;
+    }
+
+    .sa-overview .admin-title {
+        margin-top: 1.5rem;
+    }
+
+    .sa-overview .admin {
+        margin-top: 1.5rem;
     }
 }

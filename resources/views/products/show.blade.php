@@ -15,10 +15,10 @@
                     <div><b>SKU</b> &nbsp; <span>{{ $product->sku }}</span></div>
                     <div class="mt-2"><b>Description</b> &nbsp; <span>{{ $product->description }}</span></div>
                     <div class="d-flex flex-column flex-lg-row gap-lg-4">
-                        <div class="mt-2"><b>Category</b> &nbsp;
+                        <div class="d-flex flex-column mt-2 me-auto"><b>Category</b>
                             <span>{{ $product->category->name ?? 'N/A' }}</span> {{-- Changed from $product->category to $product->category->name --}}
                         </div>
-                        <div class="mt-2"><b>Sub Category</b> &nbsp;
+                        <div class="d-flex flex-column mt-2 me-auto"><b>Sub Category</b>
                             <span>{{ $product->subCategory->name ?? 'N/A' }}</span> {{-- Changed from $product->subcategory to $product->subCategory->name --}}
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 @include('partials._delete')
 @extends('layouts.dashboard-layout')
+<script src="{{ asset('js/filter.js') }}"></script>
 
 @section('title', 'Products')
 
@@ -42,25 +43,32 @@
                                     <td>{{ $product->description }}</td>
                                     <td class="img-col">
                                         @if ($product->image_path)
-                                            <img src="{{ asset('storage/' . $product->image_path) }}" alt="Product Image" width="60">
+                                            <img src="{{ asset('storage/' . $product->image_path) }}" alt="Product Image"
+                                                width="60">
                                         @else
-                                            <img src="{{ asset('images/img-placeholder.png') }}" alt="No Image" width="60">
+                                            <img src="{{ asset('images/img-placeholder.png') }}" alt="No Image"
+                                                width="60">
                                         @endif
                                     </td>
                                     <td>{{ $product->sku }}</td>
                                     <td>{{ $product->category->name ?? 'N/A' }}</td> {{-- Changed from $product->category to $product->category->name --}}
                                     <td>₱{{ number_format($product->price, 2) }}</td>
                                     <td>{{ $product->stock_status ?? 'N/A' }}</td>
-                                    <td class="icon-col">
-                                        <a href="{{ route('products.show', $product) }}" title="View">
-                                            <img class="icon" src="{{ asset('images/view.png') }}" alt="View" width="20">
-                                        </a>
-                                        <a href="{{ route('products.edit', $product) }}" title="Edit">
-                                            <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit" width="20">
-                                        </a>
-                                        <a href="" onclick="openDeleteModal('{{ route('products.destroy', $product->id) }}'); return false;">
-                                            <img src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
-                                        </a>
+                                    <td>
+                                        <div class="icon-col">
+                                            <a href="{{ route('products.show', $product) }}" title="View">
+                                                <img class="icon" src="{{ asset('images/view.png') }}" alt="View"
+                                                    width="20">
+                                            </a>
+                                            <a href="{{ route('products.edit', $product) }}" title="Edit">
+                                                <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit"
+                                                    width="20">
+                                            </a>
+                                            <a href=""
+                                                onclick="openDeleteModal('{{ route('products.destroy', $product->id) }}'); return false;">
+                                                <img src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             @empty
@@ -93,12 +101,14 @@
                             <div class="fw-bold mb-1">Category</div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="category[]" value="Dog Supplies"
-                                    id="dogSupplies" {{ in_array('Dog Supplies', request('category', [])) ? 'checked' : '' }}>
+                                    id="dogSupplies"
+                                    {{ in_array('Dog Supplies', request('category', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="dogSupplies">Dog Supplies</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="category[]" value="Cat Supplies"
-                                    id="catSupplies" {{ in_array('Cat Supplies', request('category', [])) ? 'checked' : '' }}>
+                                    id="catSupplies"
+                                    {{ in_array('Cat Supplies', request('category', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="catSupplies">Cat Supplies</label>
                             </div>
                         </div>
@@ -144,8 +154,4 @@
             </div>
         </div>
     </section>
-@endsection
-
-@section('scripts')
-    <script src="{{ asset('js/filter.js') }}"></script>
 @endsection
