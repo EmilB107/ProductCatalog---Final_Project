@@ -3,43 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class InventoryController extends Controller
 {
-    // Dummy inventory data
-    private $inventory = [
-        [
-            'name' => 'iPhone 14',
-            'image' => 'images/img-placeholder.png',
-            'sku' => 'SKU-001',
-            'quantity' => 10,
-            'stock' => 'In Stock',
-        ],
-        [
-            'name' => 'Samsung Galaxy S23',
-            'image' => 'images/img-placeholder.png',
-            'sku' => 'SKU-002',
-            'quantity' => 3,
-            'stock' => 'Low Stock',
-        ],
-        [
-            'name' => 'Google Pixel 8',
-            'image' => 'images/img-placeholder.png',
-            'sku' => 'SKU-003',
-            'quantity' => 0,
-            'stock' => 'Out of Stock',
-        ],
-    ];
 
     public function index()
     {
-        $inventory = $this->inventory;
+        $inventory = Product::all();
         return view('inventory.index', compact('inventory'));
     }
 
-    public function update()
+    public function edit()
     {
-        $inventory = $this->inventory;
+        $inventory = Product::all();
         return view('inventory.update', compact('inventory'));
     }
+
+    public function update(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+        'quantity' => 'required|integer|min:0',
+        'stock' => 'required|in:Low_Stock,In_Stock,Out_Of_Stock',
+    ]);
+
+    $product->update([
+        'quantity' => $validated['quantity'],
+        'stock_status' => $validated['stock'],
+    ]);
+
+    return redirect()->route('inventory.edit')->with('success', 'Inventory updated successfully.');
+
+
+}
 }
