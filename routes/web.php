@@ -57,7 +57,8 @@ Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->nam
 // INVENTORY ROUTES
 // ==========================
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-Route::get('/inventory/update', [InventoryController::class, 'update'])->name('inventory.update');
+Route::get('/inventory/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
+Route::put('/inventory/{product}', [InventoryController::class, 'update'])->name('inventory.update');
 
 // ==========================
 // PRICES ROUTES
