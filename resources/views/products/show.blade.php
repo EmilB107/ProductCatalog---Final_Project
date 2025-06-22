@@ -33,7 +33,7 @@
                 <div class="mt-auto">
                     {{-- Display stock status below the image with color coding --}}
                     @php
-                        $stockQuantity = (int) $product->stock_status; // Ensure it's an integer
+                        $stockQuantity = (int) $product->quantity; // Ensure it's an integer
                         $stockStatusText = '';
                         $stockColor = '';
 
