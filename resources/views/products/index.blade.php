@@ -109,6 +109,12 @@
                                     {{ in_array('Cat', request('category', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="catSupplies">Cat</label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="category[]" value="Other Pets"
+                                    id="otherSupplies"
+                                    {{ in_array('Other Pets', request('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="catSupplies">Other Pets</label>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <div class="fw-bold mb-1">Price</div>
