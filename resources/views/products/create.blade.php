@@ -52,9 +52,9 @@
                             <label for="category" class="mb-0 me-auto"><b>Category</b></label>
                             <select id="category" name="category" class="form-select mt-3 wide-select @error('category') is-invalid @enderror" required>
                                 <option value="" disabled {{ old('category') ? '' : 'selected' }}>Select Category</option>
-                                <option value="Food" {{ old('category') == 'Food' ? 'selected' : '' }}>Food</option>
-                                <option value="Accessories" {{ old('category') == 'Accessories' ? 'selected' : '' }}>Accessories</option>
-                                <option value="Supplies" {{ old('category') == 'Supplies' ? 'selected' : '' }}>Supplies</option>
+                                <option value="Dog" {{ old('category', $product->category->name ?? '') == 'Dog' ? 'selected' : '' }}>Dog</option>
+                                <option value="Cat" {{ old('category', $product->category->name ?? '') == 'Cat' ? 'selected' : '' }}>Cat</option>
+                                <option value="Other Pets" {{ old('category', $product->category->name ?? '') == 'Other Pets' ? 'selected' : '' }}>Other Pets</option>
                             </select>
                             @error('category')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -64,9 +64,9 @@
                             <label for="subcategory" class="mb-0 me-auto"><b>Sub Category</b></label>
                             <select id="subcategory" name="subcategory" class="form-select mt-3 wide-select @error('subcategory') is-invalid @enderror">
                                 <option value="" {{ old('subcategory') ? '' : 'selected' }}>Select Sub Category</option>
-                                <option value="Dry Food" {{ old('subcategory') == 'Dry Food' ? 'selected' : '' }}>Dry Food</option>
-                                <option value="Wet Food" {{ old('subcategory') == 'Wet Food' ? 'selected' : '' }}>Wet Food</option>
-                                <option value="Toys" {{ old('subcategory') == 'Toys' ? 'selected' : '' }}>Toys</option>
+                                <option value="Food" {{ old('subcategory', $product->subCategory->name ?? '') == 'Food' ? 'selected' : '' }}>Food</option>
+                                <option value="Essentials" {{ old('subcategory', $product->subCategory->name ?? '') == 'Essentials' ? 'selected' : '' }}>Essentials</option>
+                                <option value="Accessories" {{ old('subcategory', $product->subCategory->name ?? '') == 'Accessories' ? 'selected' : '' }}>Accessories</option>
                             </select>
                             @error('subcategory')
                                 <div class="invalid-feedback">{{ $message }}</div>
