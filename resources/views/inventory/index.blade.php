@@ -1,6 +1,6 @@
+@include('partials._delete')
 @extends('layouts.dashboard-layout')
 <script src="{{ asset('js/filter.js') }}"></script>
-
 
 @section('title', 'Inventory')
 
@@ -9,11 +9,11 @@
         <div class="d-flex mb-3">
             <h1>Inventory</h1>
             <div class="product-search-bar ms-auto">
-                <form action="#" method="GET" class="search-form">
+                <form action="{{ route('inventory.index') }}" method="GET" class="search-form">
                     <div class="search-input-wrapper">
                         <img src="{{ asset('images/search.png') }}" alt="Search" class="search-icon">
                         <input type="text" name="query" class="search-input"
-                            placeholder="Search Product Name, SKU, Quantity, Stock">
+                            placeholder="Search Product Name, SKU, Quantity, Stock" value="{{ request('query') }}">
                     </div>
                     <button type="submit" class="search-btn ms-3">SEARCH</button>
                 </form>
@@ -30,27 +30,56 @@
                                 <th>SKU</th>
                                 <th>Quantity</th>
                                 <th>Stock</th>
+                                <th>Action</th> {{-- Re-added Action column --}}
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($inventory as $item)
+                           @forelse ($inventory as $item)
                                 <tr>
-                                    <td>{{ $item['name'] }}</td>
+                                    <td>{{ $item->name }}</td>
                                     <td class="img-col">
-                                        <img src="{{ asset($item['image']) }}" alt="Product Image" width="40">
+                                        <img src="{{ asset($item->image) }}" alt="Product Image" width="40">
                                     </td>
-                                    <td>{{ $item['sku'] }}</td>
-                                    <td>{{ $item['quantity'] }}</td>
-                                    <td>{{ $item['stock'] }}</td>
+                                    <td>{{ $item->sku }}</td>
+                                    <td>{{ $item->quantity ?? 'N/A' }}</td>
+                                    <td>
+                                        {{-- Dynamic Stock Status --}}
+                                        @php
+                                            $stockQuantity = (int) $item->quantity; // Ensure it's an integer
+                                            $stockStatusText = '';
+                                            $stockColor = '';
+
+                                            if ($stockQuantity === 0) {
+                                                $stockStatusText = 'Out of Stock';
+                                                $stockColor = 'red';
+                                            } elseif ($stockQuantity > 0 && $stockQuantity <= 10) { // Assuming 1-10 is 'Low Stock'
+                                                $stockStatusText = 'Low Stock';
+                                                $stockColor = 'orange';
+                                            } else {
+                                                $stockStatusText = 'In Stock';
+                                                $stockColor = 'green';
+                                            }
+                                        @endphp
+                                        <span style="color: {{ $stockColor }}; font-weight: bold;">
+                                            {{ $stockStatusText }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="icon-col">
+                                            {{-- Assuming you have an 'inventory.edit' route for individual items --}}
+                                            <a href="{{ route('inventory.edit', $item->id) }}" title="Edit">
+                                                <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit">
+                                            </a>
+                                        </div>
+                                    </td> {{-- Re-added Action column content --}}
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="6">No inventory items found.</td> {{-- Updated colspan --}}
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
-                </div>
-                <div class="mt-2 text-center">
-                    <a href="{{ route('inventory.edit') }}" role="button" class="add-btn">
-                        Update Inventory
-                    </a>
                 </div>
             </div>
             <div class="col-lg-2 d-none d-lg-flex flex-column ">
@@ -69,38 +98,39 @@
                             <div class="fw-bold mb-1">Quantity</div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="quantity[]" value="1-10"
-                                    id="q1">
+                                    id="q1" {{ in_array('1-10', request('quantity', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="q1">1-10</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="quantity[]" value="11-20"
-                                    id="q2">
+                                    id="q2" {{ in_array('11-20', request('quantity', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="q2">11-20</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="quantity[]" value="21+"
-                                    id="q3">
+                                    id="q3" {{ in_array('21+', request('quantity', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="q3">21 +</label>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="fw-bold mb-1">Stock</div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="stock[]" value="low"
-                                    id="lowStock">
+                                <input class="form-check-input" type="checkbox" name="stock[]" value="Low Stock"
+                                    id="lowStock" {{ in_array('Low Stock', request('stock', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="lowStock">Low Stock</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="stock[]" value="in"
-                                    id="inStock">
+                                <input class="form-check-input" type="checkbox" name="stock[]" value="In Stock"
+                                    id="inStock" {{ in_array('In Stock', request('stock', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="inStock">In Stock</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="stock[]" value="out"
-                                    id="outStock">
+                                <input class="form-check-input" type="checkbox" name="stock[]" value="Out of Stock"
+                                    id="outStock" {{ in_array('Out of Stock', request('stock', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="outStock">Out of Stock</label>
                             </div>
                         </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Apply Filters</button>
                     </form>
                 </div>
             </div>
