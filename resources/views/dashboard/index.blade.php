@@ -9,7 +9,7 @@
             <div class="d-item d-flex text-center">
                 <img class="me-2" src="{{ asset('images/dashboard-01.png') }}" alt="Products Icon">
                 <div class="text">
-                    <span class="num">500</span>
+                    <span class="num">{{ $totalProducts }}</span> {{-- Display total products from database --}}
                     <span class="desc">Total Products</span>
                 </div>
             </div>
@@ -53,14 +53,14 @@
                 <tbody>
                     @foreach ($products as $product)
                         <tr>
-                            <td>{{ $product['name'] }}</td>
+                            <td>{{ $product->name }}</td>
                             <td>
-                                <img src="{{ asset($product['image']) }}" alt="Product Image" width="40">
+                                <img src="{{ $product->imageUrl }}" alt="Product Image" width="40"> {{-- Use imageUrl attribute from Product model --}}
                             </td>
-                            <td>{{ $product['sku'] }}</td>
-                            <td>{{ $product['category'] }}</td>
-                            <td>₱ {{ number_format($product['price'], 2) }}</td>
-                            <td>{{ $product['stock'] }}</td>
+                            <td>{{ $product->sku }}</td>
+                            <td>{{ $product->category->name ?? 'N/A' }}</td> {{-- Access category name --}}
+                            <td>₱ {{ number_format($product->price, 2) }}</td>
+                            <td>{{ $product->stock_status }}</td> {{-- Use stock_status from Product model --}}
                         </tr>
                     @endforeach
                 </tbody>
