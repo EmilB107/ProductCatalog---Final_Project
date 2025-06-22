@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
+use App\Models\SubCategory;
 
 class Product extends Model
 {
@@ -16,11 +18,13 @@ class Product extends Model
         'category_id',
         'sub_category_id',
         'price',
+        'quantity',
         'stock_status',
         'image_path',
     ];
 
     protected $casts = [
+        'quantity' => 'integer',
         'price' => 'decimal:2',
     ];
 

@@ -10,10 +10,29 @@
             @include('partials._return', ['route' => 'inventory.index'])
             <h1 class="mx-auto">Update Inventory</h1>
         </div>
+
+        {{-- Success Message --}}
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        {{-- Error Messages --}}
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="row justify-content-center">
             <div class="col col-lg-10">
                 <div class="table-responsive">
-                    <form>
                         <table class="table table-bordered text-center align-middle">
                             <thead>
                                 <tr>
@@ -27,35 +46,34 @@
                             </thead>
                             <tbody>
                                 @foreach ($inventory as $item)
-                                    <tr>
-                                        <td>{{ $item['name'] }}</td>
+                                <tr>
+                                    <form action="{{ route('inventory.update', $item) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <td>{{ $item->name }}</td>
                                         <td class="img-col">
-                                            <img src="{{ asset($item['image']) }}" alt="Product Image" width="40">
+                                            <img src="{{ asset($item->image) }}" alt="Product Image" width="40">
                                         </td>
-                                        <td>{{ $item['sku'] }}</td>
+                                        <td>{{ $item->sku }}</td>
                                         <td>
-                                            <input type="number" class="form-control text-center"
-                                                value="{{ $item['quantity'] }}">
+                                            <input type="number" name="quantity" class="form-control text-center"
+                                                value="{{ old('quantity', $item->quantity) }}" min="0" required>
                                         </td>
                                         <td>
-                                            <select class="form-select text-center">
-                                                <option {{ $item['stock'] == 'Low Stock' ? 'selected' : '' }}>Low Stock
-                                                </option>
-                                                <option {{ $item['stock'] == 'In Stock' ? 'selected' : '' }}>In Stock
-                                                </option>
-                                                <option {{ $item['stock'] == 'Out of Stock' ? 'selected' : '' }}>Out of
-                                                    Stock</option>
+                                            <select name="stock" class="form-select text-center" required>
+                                                <option value="Low_Stock" {{ old('stock', $item->stock_status) === 'Low_Stock' ? 'selected' : '' }}>Low Stock</option>
+                                                <option value="In_Stock" {{ old('stock', $item->stock_status) === 'In_Stock' ? 'selected' : '' }}>In Stock</option>
+                                                <option value="Out_Of_Stock" {{ old('stock', $item->stock_status) === 'Out_Of_Stock' ? 'selected' : '' }}>Out of Stock</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <a href="#"
-                                                onclick="this.closest('form').submit(); return false;">Save</a>
+                                            <button type="submit" class="btn btn-success btn-sm">Save</button>
                                         </td>
-                                    </tr>
+                                    </form>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                    </form>
                 </div>
             </div>
             <div class="col-lg-2 d-none d-lg-flex flex-column ">
@@ -69,7 +87,7 @@
                         <img id="filterIconHide" src="{{ asset('images/filter.png') }}" alt="Filter" width="24"
                             class="ms-auto" style="cursor:pointer;" onclick="hideFilterPanel()">
                     </div>
-                    <form method="GET" action="{{ route('inventory.update') }}">
+                    <form method="GET" action="{{ route('inventory.edit') }}">
                         <div class="mb-3">
                             <div class="fw-bold mb-1">Quantity</div>
                             <div class="form-check">
@@ -106,7 +124,6 @@
                                 <label class="form-check-label" for="outStock">Out of Stock</label>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
