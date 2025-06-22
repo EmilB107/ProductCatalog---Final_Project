@@ -16,7 +16,7 @@
             <div class="d-item d-flex text-center">
                 <img class="me-2" src="{{ asset('images/dashboard-02.png') }}" alt="Items Icon">
                 <div class="text">
-                    <span class="num">1000</span>
+                    <span class="num">{{ $totalItems }}</span> {{-- Display total items (not out of stock) --}}
                     <span class="desc">Total Items</span>
                 </div>
             </div>
