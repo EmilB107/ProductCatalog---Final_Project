@@ -57,16 +57,14 @@
                                     <td>
                                         <div class="icon-col">
                                             <a href="{{ route('products.show', $product) }}" title="View">
-                                                <img class="icon" src="{{ asset('images/view.png') }}" alt="View"
-                                                    width="20">
+                                                <img class="icon" src="{{ asset('images/view.png') }}" alt="View">
                                             </a>
                                             <a href="{{ route('products.edit', $product) }}" title="Edit">
-                                                <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit"
-                                                    width="20">
+                                                <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit">
                                             </a>
                                             <a href=""
                                                 onclick="openDeleteModal('{{ route('products.destroy', $product->id) }}'); return false;">
-                                                <img src="{{ asset('images/delete.png') }}" alt="Delete" width="20">
+                                                <img class="icon" src="{{ asset('images/delete.png') }}" alt="Delete">
                                             </a>
                                         </div>
                                     </td>
