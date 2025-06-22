@@ -8,11 +8,11 @@
         <div class="d-flex mb-3">
             <h1>Prices</h1>
             <div class="product-search-bar ms-auto">
-                <form action="#" method="GET" class="search-form">
+                <form action="{{ route('prices.index') }}" method="GET" class="search-form">
                     <div class="search-input-wrapper">
                         <img src="{{ asset('images/search.png') }}" alt="Search" class="search-icon">
                         <input type="text" name="query" class="search-input"
-                            placeholder="Search Product Name, Price">
+                            placeholder="Search Product Name, Price" value="{{ request('query') }}">
                     </div>
                     <button type="submit" class="search-btn ms-3">SEARCH</button>
                 </form>
@@ -28,12 +28,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- Loop through the 'prices' collection, which are actually Product objects --}}
                     @foreach ($prices as $price)
                         <tr>
-                            <td>{{ $price['name'] }}</td>
-                            <td>{{ $price['price'] }}</td>
+                            <td>{{ $price->name }}</td> {{-- Access name using object property --}}
+                            <td>{{ $price->price }}</td> {{-- Access price using object property --}}
                             <td class="icon-col">
-                                <a href="{{ route('prices.edit', $price['name']) }}" title="Edit">
+                                {{-- Use $price->id for the route parameter for route model binding --}}
+                                <a href="{{ route('prices.edit', $price->id) }}" title="Edit">
                                     <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit">
                                 </a>
                             </td>

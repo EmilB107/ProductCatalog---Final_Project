@@ -63,7 +63,9 @@ Route::get('/inventory/update', [InventoryController::class, 'update'])->name('i
 // PRICES ROUTES
 // ==========================
 Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
-Route::get('/prices/{id}/edit', [PriceController::class, 'edit'])->name('prices.edit');
+Route::get('/prices/{product}/edit', [PriceController::class, 'edit'])->name('prices.edit');
+// Add the POST route for updating the price, using {product} for route model binding
+Route::post('/prices/{product}', [PriceController::class, 'update'])->name('prices.update');
 
 // ==========================
 // SUPER ADMIN ROUTES
