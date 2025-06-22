@@ -1167,12 +1167,15 @@ footer a img {
     }
 
     .d-product .table-responsive,
-    .d-inventory .table-responsive {
+    .d-inventory .table-responsive,
+    .d-inventory-update .table-responsive {
         max-width: 90%;
         margin-left: auto;
     }
 
-    .d-prices .table-responsive {
+    .d-prices .table-responsive,
+    .d-category-show .table-responsive,
+    .d-prices-edit .table-responsive {
         max-width: 60%;
         margin: auto;
         margin-top: 2rem;
@@ -1307,5 +1310,88 @@ footer a img {
 
     .wide-select {
         min-width: 180px;
+    }
+
+    .d-category-edit .card,
+    .d-category-create .card {
+        max-width: 600px;
+        border-radius: 20px;
+        border: 1.5px solid #e6e6e6;
+    }
+
+    .d-category-edit .form-label,
+    .d-category-create .form-label {
+        font-size: 1.25rem;
+    }
+
+    .d-category-edit .form-control,
+    .d-category-create .form-control {
+        font-size: 1rem;
+    }
+
+    .d-category-edit span,
+    .d-category-create span {
+        right: 15px;
+        top: 50%;
+    }
+
+    .d-category-edit button,
+    .d-category-create button {
+        font-size: 1rem;
+    }
+
+    .d-inventory-update td a,
+    .d-prices-edit td a {
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 0.4rem 3rem;
+    }
+
+    .d-prices-edit td input[type="number"] {
+        width: 220px;
+        padding: 0.4rem 3rem;
+        font-size: 1rem;
+    }
+
+    .d-inventory-update .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 350px;
+    }
+
+    .d-inventory-update td input[type="number"] {
+        width: 120px;
+        padding: 0.4rem 3rem;
+        font-size: 1rem;
+    }
+
+    .d-inventory-update td select {
+        width: 180px;
+        font-size: 1rem;
+    }
+
+    .delete-modal-content {
+        max-width: 500px;
+        padding: 3rem 4rem;
+        padding-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+    .delete-img {
+        font-size: 8rem;
+    }
+
+    .delete-modal .check {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+        margin-right: 20px;
+    }
+
+    .delete-modal .cross {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
     }
 }
