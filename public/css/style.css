@@ -291,6 +291,12 @@ footer a img {
     margin: 0;
 }
 
+.signup col {
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .signup img {
     width: 30%;
     height: auto;
@@ -378,7 +384,6 @@ footer a img {
     transform: translateX(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     white-space: nowrap; /* Prevent text from breaking */
-    margin-left: 0.5rem;
 }
 
 .main-content h1,
@@ -597,6 +602,7 @@ footer a img {
 }
 
 .crud-card {
+    border: 0.2px solid black;
     border-radius: 2rem;
     box-shadow: 0 2px 16px #0002;
     width: 300px;
@@ -613,10 +619,6 @@ footer a img {
     font-family: "Nunito", sans-serif;
     color: var(--color-text-secondaryary);
     font-size: 0.675rem;
-}
-
-.crud-card .desc {
-    margin-top: .5rem;
 }
 
 .crud-card img {
@@ -846,29 +848,29 @@ footer a img {
 
 /* RESPONSIVENESS */
 
-@media (min-width: 1536px) {
+@media (min-width: 1900px) {
     nav {
         padding: 0.8rem !important;
     }
     nav img {
-        width: 60px;
+        width: 70px;
     }
 
     nav span {
-        font-size: 1.5rem;
+        font-size: 2rem;
         padding-left: 0.5rem;
     }
 
     nav a {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
 
     .d-nav a {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .d-nav p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .row .left-col {
@@ -950,11 +952,11 @@ footer a img {
     }
 
     .featured .card {
-        width: 320px;
+        width: 350px;
         height: auto;
         border: 8px solid var(--color-border);
         border-radius: 2.5rem;
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem 0.8rem;
         margin: 1rem 1.2rem;
     }
 
@@ -976,14 +978,12 @@ footer a img {
 
     .featured .stock {
         font-size: 1.4rem;
-        margin-top: auto;
     }
 
     .featured a {
         padding: 0.5rem 2rem;
         font-size: 1.5rem;
         border-radius: 3rem;
-        margin-top: auto;
     }
 
     .form {
@@ -1040,271 +1040,9 @@ footer a img {
 
     .footer-img {
         display: block;
-        width: 1300px !important;
+        width: 1400px !important;
         height: auto;
         margin: 0 auto;
         margin-top: -20px;
-    }
-
-    .signup .row {
-        width: 800px;
-        border-radius: 1rem;
-        border: 2px solid var(--color-border);
-        padding: 1.5rem;
-        margin: 0 auto;
-    }
-
-    .signup img {
-        width: 30%;
-        height: auto;
-    }
-
-    .comp-name {
-        font-size: 1.25rem;
-    }
-
-    .signup h1 {
-        font-size: 2rem;
-    }
-
-    .sub {
-        font-size: 1.3rem;
-    }
-
-    .signup input[type="text"],
-    .signup input[type="password"] {
-        max-width: 80%;
-        font-size: 1.5rem;
-        padding: 1rem 1.5rem;
-        height: 3rem;
-        margin: 0 auto;
-    }
-
-    .signup button {
-        font-size: 1.2rem;
-        padding: 0.6rem 4rem;
-        border-radius: 0.8rem;
-    }
-
-    .sidebar {
-        width: 50px;
-    }
-
-    .sidebar.expanded {
-        width: 12%;
-    }
-
-    .sidebar li a {
-        margin-bottom: 0.8rem;
-    }
-
-    .sidebar img {
-        width: 32px;
-        height: auto;
-        margin-left: 0.2rem;
-    }
-
-    #menu-toggle {
-        margin-top: 0.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .sidebar a {
-        margin-right: 0.8rem;
-    }
-
-    .menu-text {
-        font-size: 1.3rem;
-        margin-left: 0.8rem;
-    }
-
-    .main-content h1,
-    .main-content h2 {
-        font-size: 2rem;
-    }
-
-    .d-home h1,
-    .d-overview h2 {
-        margin-left: 5rem;
-        margin-bottom: 2rem;
-    }
-
-    .d-grid {
-        row-gap: 4rem;
-        column-gap: 12rem;
-        margin: auto;
-    }
-
-    .d-item {
-        width: 400px;
-        height: 200px;
-        padding: 1rem;
-    }
-
-    .d-home img {
-        height: 65px;
-        margin: auto 0;
-        margin-left: 1.5rem;
-    }
-
-    .d-home .text {
-        margin: auto;
-    }
-
-    .d-home .num {
-        font-size: 3rem;
-    }
-
-    .d-home .desc {
-        font-size: 1.5rem;
-    }
-
-    .d-overview .table-responsive,
-    .d-category .table-responsive {
-        max-width: 80%;
-        margin: auto;
-    }
-
-    .d-product .table-responsive,
-    .d-inventory .table-responsive {
-        max-width: 90%;
-        margin-left: auto;
-    }
-
-    .d-prices .table-responsive {
-        max-width: 60%;
-        margin: auto;
-        margin-top: 2rem;
-    }
-
-    .d-overview .table,
-    .d-product .table,
-    .d-category .table,
-    .d-category-show .table,
-    .d-inventory .table,
-    .d-inventory-update .table,
-    .d-prices .table,
-    .d-prices-edit .table,
-    .admin-list .table {
-        font-size: 1rem;
-    }
-
-    .img-col img {
-        width: 60px;
-    }
-    .icon-col .icon {
-        width: 24px;
-        margin: 0.2rem 0;
-    }
-
-    .add-btn {
-        font-size: 1.2rem;
-        border-radius: 8px;
-        padding: 0.5rem 1.3rem;
-    }
-
-    .d-category .add-btn {
-        margin-right: 6rem;
-    }
-
-    .d-inventory .add-btn {
-        margin-left: 10rem;
-    }
-
-    .product-search-bar {
-        margin-right: 12rem;
-    }
-
-    .search-icon {
-        width: 24px;
-    }
-
-    .search-input {
-        font-size: 1rem;
-        padding: 0.6rem 1rem 0.6rem 3rem;
-        width: 400px;
-    }
-
-    .search-input::placeholder {
-        font-size: 1em;
-    }
-
-    .search-btn {
-        font-size: 1rem;
-        border-radius: 8px;
-    }
-
-    .return img {
-        width: auto;
-        height: 40px;
-        margin-right: .8rem;
-    }
-
-    .return a {
-        font-size: 1.2rem;
-        margin-bottom: .3rem;
-    }
-
-    .crud-card {
-        border-radius: 2rem;
-        box-shadow: 0 2px 16px #0002;
-        width: 650px;
-        padding: 2rem;
-    }
-
-    .d-product-edit .crud-card,
-    .d-product-create .crud-card {
-        width: 700px;
-    }
-
-    .crud-card .left-col {
-        width: 55%;
-    }
-
-    .crud-card .text {
-        margin-bottom: .8rem;
-    }
-
-    .crud-card b {
-        font-size: 1.2rem;
-    }
-
-    .crud-card span {
-        font-size: 1rem;
-    }
-
-    .crud-card img {
-        width: 240px;
-    }
-
-    .crud-card p {
-        font-size: 1rem;
-        margin-top: 1rem;
-    }
-
-    .crud-card a {
-        font-size: 1rem;
-        border-radius: 8px;
-        padding: 0.6rem 1.6rem;
-    }
-
-    .crud-card input,
-    .crud-card select {
-        font-size: 1rem;
-        padding: 0.3rem 0.8rem;
-    }
-
-    .crud-card label img {
-        width: 16px;
-        height: fit-content;
-    }
-
-    .crud-card button {
-        border-radius: 8px;
-        font-size: 1rem;
-    }
-
-    .upload img {
-        width: 18px;
     }
 }
