@@ -101,13 +101,13 @@
                                 <input class="form-check-input" type="checkbox" name="category[]" value="Dog Supplies"
                                     id="dogSupplies"
                                     {{ in_array('Dog Supplies', request('category', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="dogSupplies">Dog Supplies</label>
+                                <label class="form-check-label" for="dogSupplies">Dog</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="category[]" value="Cat Supplies"
                                     id="catSupplies"
                                     {{ in_array('Cat Supplies', request('category', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="catSupplies">Cat Supplies</label>
+                                <label class="form-check-label" for="catSupplies">Cat</label>
                             </div>
                         </div>
                         <div class="mb-3">
