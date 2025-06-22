@@ -51,7 +51,7 @@
                                         @endif
                                     </td>
                                     <td>{{ $product->sku }}</td>
-                                    <td>{{ $product->category->name ?? 'N/A' }}</td> {{-- Changed from $product->category to $product->category->name --}}
+                                    <td>{{ $product->category->name ?? 'N/A' }}</td>
                                     <td>₱{{ number_format($product->price, 2) }}</td>
                                     <td>{{ $product->stock_status ?? 'N/A' }}</td>
                                     <td>
@@ -98,15 +98,15 @@
                         <div class="mb-3">
                             <div class="fw-bold mb-1">Category</div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="category[]" value="Dog Supplies"
+                                <input class="form-check-input" type="checkbox" name="category[]" value="Dog"
                                     id="dogSupplies"
-                                    {{ in_array('Dog Supplies', request('category', [])) ? 'checked' : '' }}>
+                                    {{ in_array('Dog', request('category', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="dogSupplies">Dog</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="category[]" value="Cat Supplies"
+                                <input class="form-check-input" type="checkbox" name="category[]" value="Cat"
                                     id="catSupplies"
-                                    {{ in_array('Cat Supplies', request('category', [])) ? 'checked' : '' }}>
+                                    {{ in_array('Cat', request('category', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="catSupplies">Cat</label>
                             </div>
                         </div>
