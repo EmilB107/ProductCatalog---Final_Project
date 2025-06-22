@@ -1,4 +1,6 @@
 @extends('layouts.dashboard-layout')
+<script src="{{ asset('js/filter.js') }}"></script>
+
 
 @section('title', 'Update Inventory')
 
@@ -27,7 +29,7 @@
                                 @foreach ($inventory as $item)
                                     <tr>
                                         <td>{{ $item['name'] }}</td>
-                                        <td>
+                                        <td class="img-col">
                                             <img src="{{ asset($item['image']) }}" alt="Product Image" width="40">
                                         </td>
                                         <td>{{ $item['sku'] }}</td>
