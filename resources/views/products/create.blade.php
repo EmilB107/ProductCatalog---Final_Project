@@ -39,18 +39,18 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="mb-3 d-flex align-items-center">
-                        <label for="description" class="mb-0 me-2"><b>Description</b></label>
-                        <input type="text" id="description" name="description" class="form-control @error('description') is-invalid @enderror" 
-                            placeholder="Description" value="{{ old('description') }}">
+                    <div class="mb-3 d-flex flex-column align-items-center">
+                        <label for="description" class="mb-0 me-auto"><b>Description</b></label>
+                        <textarea id="description" name="description" rows="4" class="form-control mt-2 @error('description') is-invalid @enderror"
+                            placeholder="Description">{{ old('description') }}</textarea>
                         @error('description')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3 d-flex flex-column flex-lg-row gap-3">
-                        <div class="d-flex align-items-center">
-                            <label for="category" class="mb-0 me-2"><b>Category</b></label>
-                            <select id="category" name="category" class="form-select @error('category') is-invalid @enderror" required>
+                        <div class="d-flex flex-column align-items-center">
+                            <label for="category" class="mb-0 me-auto"><b>Category</b></label>
+                            <select id="category" name="category" class="form-select mt-3 wide-select @error('category') is-invalid @enderror" required>
                                 <option value="" disabled {{ old('category') ? '' : 'selected' }}>Select Category</option>
                                 <option value="Food" {{ old('category') == 'Food' ? 'selected' : '' }}>Food</option>
                                 <option value="Accessories" {{ old('category') == 'Accessories' ? 'selected' : '' }}>Accessories</option>
@@ -60,9 +60,9 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="d-flex align-items-center">
-                            <label for="subcategory" class="mb-0 me-2"><b>Sub Category</b></label>
-                            <select id="subcategory" name="subcategory" class="form-select @error('subcategory') is-invalid @enderror">
+                        <div class="d-flex flex-column align-items-center">
+                            <label for="subcategory" class="mb-0 me-auto"><b>Sub Category</b></label>
+                            <select id="subcategory" name="subcategory" class="form-select mt-3 wide-select @error('subcategory') is-invalid @enderror">
                                 <option value="" {{ old('subcategory') ? '' : 'selected' }}>Select Sub Category</option>
                                 <option value="Dry Food" {{ old('subcategory') == 'Dry Food' ? 'selected' : '' }}>Dry Food</option>
                                 <option value="Wet Food" {{ old('subcategory') == 'Wet Food' ? 'selected' : '' }}>Wet Food</option>
@@ -109,7 +109,7 @@
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="mt-3 d-flex gap-2">
+                    <div class="mt-4 d-flex gap-4">
                         <button type="submit" class="btn btn-primary">Save</button>
                         <a href="{{ route('products.index') }}" class="btn btn-secondary">Cancel</a>
                     </div>
