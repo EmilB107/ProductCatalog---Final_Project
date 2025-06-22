@@ -109,8 +109,7 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
             // Changed validation for 'stock' to be numeric, assuming it's the actual quantity
             'stock' => 'nullable|integer|min:0',
-            // 'stock_status' might not be directly from input if 'stock' is numeric
-            'stock_status' => 'nullable|string', // Keeping this if it's still used for string status
+            'quantity' => 'nullable|integer|min:0', // Keeping this if it's still used for string status
             'product_image' => 'nullable|image|max:2048',
         ]);
 
@@ -168,7 +167,8 @@ class ProductController extends Controller
             'category_id' => $category ? $category->id : null,
             'sub_category_id' => $subCategory ? $subCategory->id : null,
             'price' => $validated['price'],
-            'stock_status' => $actualStockQuantity, // Store the numeric stock quantity here
+            //'stock_status' => $actualStockQuantity, // Store the numeric stock quantity here
+            'quantity' => $validated['quantity'],
             'image_path' => $imagePath,
         ]);
 
@@ -209,9 +209,9 @@ class ProductController extends Controller
             'sub_category_id' => 'nullable|exists:sub_categories,id',  // For edit form
             'price' => 'required|numeric|min:0',
             // Changed validation for 'stock' to be numeric, assuming it's the actual quantity
-            'stock' => 'nullable|integer|min:0',
-            // 'stock_status' might not be directly from input if 'stock' is numeric
-            'stock_status' => 'nullable|string', // Keeping this if it's still used for string status
+            'quantity' => 'nullable|integer|min:0',
+            //'stock_status' might not be directly from input if 'stock' is numeric
+            //'stock_status' => 'nullable|string', // Keeping this if it's still used for string status
             'product_image' => 'nullable|image|max:2048',
         ]);
 
@@ -257,7 +257,8 @@ class ProductController extends Controller
             'category_id' => $category ? $category->id : $product->category_id,
             'sub_category_id' => $subCategory ? $subCategory->id : $product->sub_category_id,
             'price' => $validated['price'],
-            'stock_status' => $actualStockQuantity ?? $product->stock_status, // Update with numeric stock quantity
+            'quantity' => $validated['quantity'],
+            //'stock_status' => $actualStockQuantity ?? $product->stock_status, // Update with numeric stock quantity
             'image_path' => $validated['image_path'] ?? $product->image_path,
         ]);
 
