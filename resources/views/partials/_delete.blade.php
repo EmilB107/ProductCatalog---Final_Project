@@ -1,7 +1,7 @@
 <div id="deleteModal" class="delete-modal">
     <div class="delete-modal-content">
         <div class="delete-img">&#10071;</div>
-        <h2 class="fw-bold mt-2 mb-1" style="font-size:2rem;">OOPS!</h2>
+        <h2 class="fw-bold mt-3 mb-1">OOPS!</h2>
         <p class="mb-3 fw-bold">Are you sure you want<br>to delete this product?</p>
         <form id="deleteModalForm" method="POST">
             @csrf
