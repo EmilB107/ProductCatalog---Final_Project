@@ -43,7 +43,7 @@
                                     <td>{{ $product->description }}</td>
                                     <td class="img-col">
                                         @if ($product->image_path)
-                                            <img src="{{ asset('storage/' . $product->image_path) }}" alt="Product Image"
+                                            <img src="{{ $product->image_path ? asset('storage/' . $product->image_path) : asset('images/img-placeholder.png') }}" alt="Product Image"
                                                 width="60">
                                         @else
                                             <img src="{{ asset('images/img-placeholder.png') }}" alt="No Image"
