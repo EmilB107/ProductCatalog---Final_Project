@@ -52,7 +52,11 @@
                                         @method('PUT')
                                         <td>{{ $item->name }}</td>
                                         <td class="img-col">
-                                            <img src="{{ asset($item->image) }}" alt="Product Image" width="40">
+                                        @if ($item->image_path)
+                                            <img src="{{ asset('storage/' . $item->image_path) }}" alt="Product Image" width="40">
+                                        @else
+                                            <img src="{{ asset('images/img-placeholder.png') }}" alt="No Image" width="40">
+                                        @endif
                                         </td>
                                         <td>{{ $item->sku }}</td>
                                         <td>
