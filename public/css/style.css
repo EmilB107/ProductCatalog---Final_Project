@@ -1367,9 +1367,12 @@ footer a img {
     }
 
     .d-inventory-update td input[type="number"] {
-        width: 120px;
-        padding: 0.4rem 3rem;
-        font-size: 1rem;
+        width: 50px;
+        margin: 0 auto;
+        padding: 0.2rem 0.3rem;
+        font-size: 0.5rem;
+        box-sizing: border-box;
+        display: block;
     }
 
     .d-inventory-update td select {
