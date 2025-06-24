@@ -65,7 +65,7 @@
                                             value="{{ $item->quantity }}" 
                                             min="0" 
                                             class="form-control text-center"
-                                            style="width: 80px; margin: 0 auto; display: inline-block;"
+                                            style="width: 100px !important; margin: 0 auto; display: inline-block; font-size: 1rem !important; color: black !important;"
                                             required>
                                 </td>
                                 <td>

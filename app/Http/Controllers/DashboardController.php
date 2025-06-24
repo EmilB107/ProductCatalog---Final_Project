@@ -13,11 +13,9 @@ class DashboardController extends Controller
         $products = Product::all();
         $totalProducts = Product::count();
 
-        // Calculate total items by summing the 'stock_status' column.
-        // We explicitly cast 'stock_status' to an UNSIGNED integer to ensure correct summation,
-        // as it's defined as a string in the ProductController validation and model fillable.
-        $totalItemsResult = Product::selectRaw('SUM(CAST(stock_status AS UNSIGNED)) as total_stock')->first();
-        $totalItems = $totalItemsResult ? (int) $totalItemsResult->total_stock : 0;
+        // Calculate total items by summing the 'quantity' column.
+        // Assuming 'quantity' is the column that stores the numerical stock count.
+        $totalItems = Product::sum('quantity'); 
 
         return view('dashboard.index', compact('products', 'totalProducts', 'totalItems'));
     }
