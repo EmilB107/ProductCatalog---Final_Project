@@ -45,13 +45,18 @@ Route::resource('products', ProductController::class);
 // ==========================
 // CATEGORIES ROUTES
 // ==========================
-Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
-Route::get('/categories/create', function () {
-    return view('categories.create');
-})->name('categories.create');
-Route::get('/categories/{id}', [CategoriesController::class, 'show'])->name('categories.show');
-Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
-Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+// Replace the individual routes below with this single line:
+Route::resource('categories', CategoriesController::class);
+
+// Removed old individual category routes:
+// Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+// Route::get('/categories/create', function () {
+//     return view('categories.create');
+// })->name('categories.create');
+// Route::get('/categories/{id}', [CategoriesController::class, 'show'])->name('categories.show');
+// Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
+// Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+
 
 // ==========================
 // INVENTORY ROUTES
