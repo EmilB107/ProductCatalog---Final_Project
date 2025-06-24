@@ -30,7 +30,7 @@
                                 <th>SKU</th>
                                 <th>Quantity</th>
                                 <th>Stock</th>
-                                <th>Action</th> {{-- Re-added Action column --}}
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +42,7 @@
                                             <img src="{{ asset('storage/' . $item->image_path) }}" alt="Product Image" width="40">
                                         @else
                                             <img src="{{ asset('images/img-placeholder.png') }}" alt="No Image" width="40">
-                                        @endif
+                                        @endif 
                                     </td>
                                     <td>{{ $item->sku }}</td>
                                     <td>{{ $item->quantity ?? 'N/A' }}</td>
@@ -70,16 +70,16 @@
                                     </td>
                                     <td>
                                         <div class="icon-col">
-                                            {{-- Assuming you have an 'inventory.edit' route for individual items --}}
-                                            <a href="{{ route('inventory.edit', $item->id) }}" title="Edit">
+                                            {{-- Link to bulk edit page instead of individual edit --}}
+                                            <a href="{{ route('inventory.edit') }}" title="Edit">
                                                 <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit">
                                             </a>
                                         </div>
-                                    </td> {{-- Re-added Action column content --}}
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6">No inventory items found.</td> {{-- Updated colspan --}}
+                                    <td colspan="6">No inventory items found.</td>
                                 </tr>
                             @endforelse
                         </tbody>

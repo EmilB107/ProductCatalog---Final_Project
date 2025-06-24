@@ -62,4 +62,36 @@ class Product extends Model
     {
         return !empty($this->image_path);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+        
+        // Sets stock_status when creating a product
+        static::creating(function ($product) {
+            $product->stock_status = $product->calculateStockStatus();
+        });
+        
+        // Update stock_status when quantity changes
+        static::updating(function ($product) {
+            if ($product->isDirty('quantity')) {
+                $product->stock_status = $product->calculateStockStatus();
+            }
+        });
+    }
+
+    /**
+     * Calculate stock status based on quantity
+     */
+    public function calculateStockStatus()
+    {
+        if ($this->quantity <= 0) {
+            return 'Out of Stock';
+        } elseif ($this->quantity <= 10) {
+            return 'Low Stock';
+        } else {
+            return 'In Stock';
+        }
+    }
+    
 }
