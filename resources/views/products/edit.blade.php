@@ -67,7 +67,7 @@
                         <div class="d-flex flex-column  align-items-center">
                             <label for="subcategory" class="mb-0 me-auto"><b>Sub Category</b></label>
                             <select id="subcategory" name="subcategory" class="form-select mt-3 wide-select @error('subcategory') is-invalid @enderror">
-                                <option value="">Select Sub Category</option>
+                                <option value="" disabled>Select Sub Category</option>
                                 @foreach($subCategories as $subCategory)
                                     <option value="{{ $subCategory->name }}" data-category-id="{{ $subCategory->category_id }}" {{ old('subcategory', $product->subCategory->name ?? '') == $subCategory->name ? 'selected' : '' }}>
                                         {{ $subCategory->name }}
@@ -140,6 +140,8 @@
             const subcategorySelect = document.getElementById('subcategory');
             const subcategoryOptions = subcategorySelect.querySelectorAll('option');
             
+            const currentSubcategory = subcategorySelect.value;
+
             subcategoryOptions.forEach(function(option, index) {
                 if (index === 0) { 
                     option.style.display = 'block';
@@ -147,8 +149,6 @@
                     option.style.display = 'none';
                 }
             });
-            
-            subcategorySelect.value = '';
             
             // Show subcategories that belong to selected category
             if (selectedCategory) {
@@ -160,12 +160,23 @@
                 };
                 
                 const selectedCategoryId = categoryMap[selectedCategory];
+                let subcategoryStillValid = false;
                 
                 subcategoryOptions.forEach(function(option) {
                     if (option.dataset.categoryId == selectedCategoryId) {
                         option.style.display = 'block';
+                        if (option.value === currentSubcategory) {
+                            subcategoryStillValid = true;
+                        }
                     }
                 });
+
+                if (!subcategoryStillValid) {
+                    subcategorySelect.value = '';
+                }
+            } else {
+                // If no category is selected, reset subcategory
+                subcategorySelect.value = '';
             }
         });
 

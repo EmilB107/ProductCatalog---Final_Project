@@ -15,8 +15,8 @@ class SubCategorySeeder extends Seeder
     public function run(): void
     {
         // Get the IDs of the categories created by CategorySeeder
-        $dogsCategory = Category::where('name', 'Dog')->first();
-        $catsCategory = Category::where('name', 'Cat')->first();
+        $dogsCategory = Category::where('name', 'Dog Supplies')->first();
+        $catsCategory = Category::where('name', 'Cat Supplies')->first();
 
         if ($dogsCategory) {
             SubCategory::create([
