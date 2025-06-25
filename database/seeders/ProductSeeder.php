@@ -15,9 +15,9 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        $dogFoodCat = Category::where('name', 'Dog')->first();
+        $dogFoodCat = Category::where('name', 'Dog Supplies')->first();
         $dogFoodSubCat = SubCategory::where('name', 'Food')->first();
-        $catToysCat = Category::where('name', 'Cat')->first();
+        $catToysCat = Category::where('name', 'Cat Supplies')->first();
         $catToysSubCat = SubCategory::where('name', 'Toy')->first();
 
         if ($dogFoodCat && $dogFoodSubCat) {
