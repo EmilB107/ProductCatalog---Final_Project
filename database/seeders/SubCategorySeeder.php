@@ -21,38 +21,38 @@ class SubCategorySeeder extends Seeder
         if ($dogsCategory) {
             SubCategory::create([
                 'category_id' => $dogsCategory->id,
-                'name' => 'Dog Dry Food'
+                'name' => 'Dry Food'
             ]);
             SubCategory::create([
                 'category_id' => $dogsCategory->id,
-                'name' => 'Dog Wet Food'
+                'name' => 'Wet Food'
             ]);
             SubCategory::create([
                 'category_id' => $dogsCategory->id,
-                'name' => 'Dog Toy'
+                'name' => 'Toy'
             ]);
             SubCategory::create([
                 'category_id' => $dogsCategory->id,
-                'name' => 'Dog Vitamins'
+                'name' => 'Vitamins'
             ]);
         }
 
         if ($catsCategory) {
             SubCategory::create([
                 'category_id' => $catsCategory->id,
-                'name' => 'Cat Dry Food'
+                'name' => 'Dry Food'
             ]);
             SubCategory::create([
                 'category_id' => $catsCategory->id,
-                'name' => 'Cat Wet Food'
+                'name' => 'Wet Food'
             ]);
             SubCategory::create([
                 'category_id' => $catsCategory->id,
-                'name' => 'Cat Toy'
+                'name' => 'Toy'
             ]);
             SubCategory::create([
                 'category_id' => $catsCategory->id,
-                'name' => 'Cat Litter'
+                'name' => 'Litter'
             ]);
         }
     }

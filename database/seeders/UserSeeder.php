@@ -20,27 +20,27 @@ class UserSeeder extends Seeder
         $PMRole = Role::where('name', 'Project Manager')->first();
 
         User::create([
-            'username' => 'Super Admin User',
+            'name' => 'Super Admin User',
             'email' => 'superadmin@example.com',
+            'email_verified_at' => now(), 
             'password' => Hash::make('password'), 
             'role_id' => $SuperAdminRole->id,
-            'email_verified_at' => now(), 
         ]);
         
         User::create([
-            'username' => 'Admin User',
+            'name' => 'Admin User',
             'email' => 'admin@example.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('password'), 
             'role_id' => $AdminRole->id,
-            'email_verified_at' => now(), 
         ]);
 
         User::create([
-            'username' => 'PM User',
+            'name' => 'PM User',
             'email' => 'PM@example.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'role_id' => $PMRole->id,
-            'email_verified_at' => now(),
         ]);
     }
 }

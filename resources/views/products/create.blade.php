@@ -52,9 +52,11 @@
                             <label for="category" class="mb-0 me-auto"><b>Category</b></label>
                             <select id="category" name="category" class="form-select mt-3 wide-select @error('category') is-invalid @enderror" required>
                                 <option value="" disabled {{ old('category') ? '' : 'selected' }}>Select Category</option>
-                                <option value="Dog" {{ old('category', $product->category->name ?? '') == 'Dog' ? 'selected' : '' }}>Dog</option>
-                                <option value="Cat" {{ old('category', $product->category->name ?? '') == 'Cat' ? 'selected' : '' }}>Cat</option>
-                                <option value="Other Pets" {{ old('category', $product->category->name ?? '') == 'Other Pets' ? 'selected' : '' }}>Other Pets</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->name }}" {{ old('category') == $category->name ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
                             </select>
                             @error('category')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -64,9 +66,11 @@
                             <label for="subcategory" class="mb-0 me-auto"><b>Sub Category</b></label>
                             <select id="subcategory" name="subcategory" class="form-select mt-3 wide-select @error('subcategory') is-invalid @enderror">
                                 <option value="" {{ old('subcategory') ? '' : 'selected' }}>Select Sub Category</option>
-                                <option value="Food" {{ old('subcategory', $product->subCategory->name ?? '') == 'Food' ? 'selected' : '' }}>Food</option>
-                                <option value="Essentials" {{ old('subcategory', $product->subCategory->name ?? '') == 'Essentials' ? 'selected' : '' }}>Essentials</option>
-                                <option value="Accessories" {{ old('subcategory', $product->subCategory->name ?? '') == 'Accessories' ? 'selected' : '' }}>Accessories</option>
+                                 @foreach($subCategories as $subCategory)
+                                    <option value="{{ $subCategory->name }}" data-category-id="{{ $subCategory->category_id }}" {{ old('subcategory') == $subCategory->name ? 'selected' : '' }}>
+                                        {{ $subCategory->name }}
+                                    </option>
+                                @endforeach
                             </select>
                             @error('subcategory')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -126,5 +130,52 @@
                 reader.readAsDataURL(file);
             }
         });
+
+        // Dynamic subcategory filtering based on selected category
+        document.getElementById('category').addEventListener('change', function() {
+            const selectedCategory = this.value;
+            const subcategorySelect = document.getElementById('subcategory');
+            const subcategoryOptions = subcategorySelect.querySelectorAll('option');
+            
+            subcategoryOptions.forEach(function(option, index) {
+                if (index === 0) 
+                { 
+                    option.style.display = 'block';
+                } 
+                else 
+                {
+                    option.style.display = 'none';
+                }
+            });
+            
+            // Reset subcategory selection
+            subcategorySelect.value = '';
+            
+            // Show subcategories that belong to selected category
+            if (selectedCategory) {
+                // Find the category ID based on the selected category name
+                const categoryMap = {
+                    @foreach($categories as $category)
+                        '{{ $category->name }}': {{ $category->id }},
+                    @endforeach
+                };
+                
+                const selectedCategoryId = categoryMap[selectedCategory];
+                
+                subcategoryOptions.forEach(function(option) {
+                    if (option.dataset.categoryId == selectedCategoryId) {
+                        option.style.display = 'block';
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const categorySelect = document.getElementById('category');
+            if (categorySelect.value) {
+                categorySelect.dispatchEvent(new Event('change'));
+            }
+        });
+
     </script>
 @endsection
