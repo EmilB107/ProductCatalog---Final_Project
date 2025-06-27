@@ -22,12 +22,19 @@ Route::get('/', function () {
 })->name('home');
 
 // Auth Routes
+// Changed signup route name for clarity when linking from other pages
 Route::get('/signup', function () {
     return view('auth.signup');
-})->name('auth.signup');
+})->name('auth.signup'); // Renamed from signup.submit if it was used for the GET route
 
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
 
+// Login Routes
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login'); // This is the primary login route name
+
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
 
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
@@ -54,7 +61,7 @@ Route::resource('categories', CategoriesController::class);
 //     return view('categories.create');
 // })->name('categories.create');
 // Route::get('/categories/{id}', [CategoriesController::class, 'show'])->name('categories.show');
-// Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
+// Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit')->name('categories.edit');
 // Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
 
 

@@ -18,7 +18,7 @@
         <div class="container">
             @include('partials._brand')
             <div class="d-flex">
-                <a href="{{ route('auth.signup') }}">Sign In</a>
+                <a href="{{ route('login') }}">Sign In</a>
             </div>
         </div>
     </nav>
