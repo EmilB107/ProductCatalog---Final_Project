@@ -1,17 +1,60 @@
 # Arf & Meow Co. — Product Catalog
 
-A Laravel 12 product catalog management system with role-based access control for Super Admins, Admins, and Project Managers.
+A full-stack product catalog management system built with **Laravel 12** and **MySQL**, featuring role-based access control, inventory tracking, product image uploads, and a suite of 61 automated tests. Deployed live on Render.
+
+🔗 **[Live Demo](https://arf-meow-catalog.onrender.com/)** *(free tier — may take ~30s to wake up)*
+
+## Tech Stack
+
+- **Backend:** Laravel 12, PHP 8.2, MySQL
+- **Frontend:** Blade, Vite, CSS
+- **Auth & Roles:** Laravel Auth with Super Admin / Admin / Project Manager roles
+- **Testing:** PHPUnit — 61 tests covering auth, CRUD, role redirects, and access control
+- **DevOps:** Docker, deployed on Render with PostgreSQL
+
+## Features
+
+- Product management — create, view, edit, delete with image uploads
+- Category & subcategory management
+- Inventory tracking with stock status (In Stock / Low Stock / Out of Stock)
+- SKU and price management
+- Role-based access control — permissions vary by role
+- User signup and authentication
+
+## Role Permissions
+
+| Feature                | Super Admin | Admin | Project Manager |
+|------------------------|:-----------:|:-----:|:---------------:|
+| View products          | Yes         | Yes   | Yes             |
+| Create / Edit products | Yes         | Yes   | No              |
+| Delete products        | Yes         | Yes   | No              |
+| Manage categories      | Yes         | Yes   | No              |
+| Manage users           | Yes         | No    | No              |
+
+## Default Accounts (after seeding)
+
+| Role            | Email                  | Password | Redirects To  |
+|-----------------|------------------------|----------|---------------|
+| Super Admin     | superadmin@example.com | password | `/superadmin` |
+| Admin           | admin@example.com      | password | `/dashboard`  |
+| Project Manager | PM@example.com         | password | `/dashboard`  |
+
+## Limitations
+
+The Super Admin user management pages (create, edit, and view for Admins, Project Managers, and Users) are frontend-only — the forms are not connected to backend routes and do not persist data.
+
+---
 
 ## Prerequisites
 
 Before you start, make sure you have the following installed on your machine:
 
-| Tool | Version | Notes |
-|------|---------|-------|
-| PHP | 8.2+ | Easiest via [Laragon](https://laragon.org/) or [XAMPP](https://www.apachefriends.org/) on Windows |
-| Composer | Latest | [getcomposer.org](https://getcomposer.org/download/) |
-| Node.js | LTS (18+) | [nodejs.org](https://nodejs.org/) — includes npm |
-| MySQL | 8.0+ | Comes bundled with Laragon or XAMPP |
+| Tool     | Version   | Notes                                                                                             |
+|----------|-----------|---------------------------------------------------------------------------------------------------|
+| PHP      | 8.2+      | Easiest via [Laragon](https://laragon.org/) or [XAMPP](https://www.apachefriends.org/) on Windows |
+| Composer | Latest    | [getcomposer.org](https://getcomposer.org/download/)                                              |
+| Node.js  | LTS (18+) | [nodejs.org](https://nodejs.org/) — includes npm                                                  |
+| MySQL    | 8.0+      | Comes bundled with Laragon or XAMPP                                                               |
 
 > **Recommended for Windows:** Use [Laragon](https://laragon.org/) — it bundles PHP, MySQL, and a terminal in one installer.
 
@@ -59,8 +102,8 @@ Before running `composer install`, make sure these extensions are enabled in you
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/jkrustia/ProductCatalog---Final_Project.git
-cd ProductCatalog---Final_Project
+git clone https://github.com/EmilB107/Arf-Meow-Co..git
+cd Arf-Meow-Co.
 ```
 
 ### 2. Install dependencies
@@ -128,41 +171,6 @@ composer run dev
 ```
 
 This starts four processes at once: the Laravel server, queue worker, log watcher, and Vite (frontend assets). Open **http://localhost:8000** in your browser.
-
-## Default Accounts
-
-After seeding, you can log in with these accounts:
-
-| Role            | Email                  | Password | Redirects To  |
-|-----------------|------------------------|----------|---------------|
-| Super Admin     | superadmin@example.com | password | `/superadmin` |
-| Admin           | admin@example.com      | password | `/dashboard`  |
-| Project Manager | PM@example.com         | password | `/dashboard`  |
-
-## Features
-
-- Product management (create, view, edit, delete)
-- Category & subcategory management
-- Inventory tracking with stock status (In Stock / Low Stock / Out of Stock)
-- SKU and price management
-- Product image uploads
-- Role-based access: Super Admin, Admin, Project Manager
-- User management (Super Admin only)
-- User signup
-
-## Limitations
-
-The Super Admin user management pages (create, edit, and view for Admins, Project Managers, and Users) are frontend-only. The forms are not connected to backend routes and do not persist data — this functionality was not implemented on the backend.
-
-## Role Permissions
-
-| Feature                | Super Admin | Admin | Project Manager |
-|------------------------|:-----------:|:-----:|:---------------:|
-| View products          |     Yes     |  Yes  |       Yes       |
-| Create / Edit products |     Yes     |  Yes  |       No        |
-| Delete products        |     Yes     |  Yes  |       No        |
-| Manage categories      |     Yes     |  Yes  |       No        |
-| Manage users           |     Yes     |  No   |       No        |
 
 ## Deploying to Render
 
